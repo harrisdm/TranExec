@@ -5,3 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+
+Group.destroy_all
+PhoneSessionType.destroy_all
+WorkhopType.destroy_all
+
+pst1 = PhoneSessionType.create :name => 'Phone Session 1'
+pst1 = PhoneSessionType.create :name => 'Phone Session 2'
+
+wst1 = WorkhopType.create :name => 'Workshop 1'
+wst2 = WorkhopType.create :name => 'Workshop 2'
+wst3 = WorkhopType.create :name => 'Workshop 3'
+
+
+
+
+
+g1 = Group.create :company => 'Aldi', :name => "Area Managers"
+g2 = Group.create :company => 'Aldi', :name => "Store Managers"
+g3 = Group.create :company => 'Rebel Sports', :name => "Store Managers"
+
+
+
+
+
+
+
