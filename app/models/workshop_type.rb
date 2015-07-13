@@ -1,3 +1,3 @@
 class WorkshopType < ActiveRecord::Base
-  belongs_to_many :workshops
+  belongs_to :workshop
 end
