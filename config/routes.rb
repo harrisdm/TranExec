@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   root :to => 'pages#landing'
   post '/appointment_block' => 'appointment_blocks#show'
+  get '/appointment_block' => 'pages#backbone', :as => 'backbone'
 
   get '/secure' => 'pages#secure'
 

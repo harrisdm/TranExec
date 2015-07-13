@@ -13,7 +13,7 @@ class AppointmentBlocksController < ApplicationController
     access_code = params['access_code']
     @appointment_block = AppointmentBlock.find_by :active => true, :code => access_code
 
-    raise 'hello'
+    redirect_to backbone_path
   end
 
   # GET /appointment_blocks/new
