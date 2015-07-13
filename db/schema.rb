@@ -25,27 +25,20 @@ ActiveRecord::Schema.define(version: 20150713072643) do
     t.string   "code"
   end
 
-  create_table "clients", force: :cascade do |t|
+  create_table "participants", force: :cascade do |t|
     t.string   "name"
-    t.integer  "group_id"
+    t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "clients_workshops", id: false, force: :cascade do |t|
-    t.integer "client_id"
+  create_table "participants_workshops", id: false, force: :cascade do |t|
+    t.integer "participant_id"
     t.integer "workshop_id"
   end
 
-  add_index "clients_workshops", ["client_id"], name: "index_clients_workshops_on_client_id", using: :btree
-  add_index "clients_workshops", ["workshop_id"], name: "index_clients_workshops_on_workshop_id", using: :btree
-
-  create_table "groups", force: :cascade do |t|
-    t.string   "company"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "participants_workshops", ["participant_id"], name: "index_participants_workshops_on_participant_id", using: :btree
+  add_index "participants_workshops", ["workshop_id"], name: "index_participants_workshops_on_workshop_id", using: :btree
 
   create_table "phone_session_types", force: :cascade do |t|
     t.string   "name"
@@ -62,6 +55,13 @@ ActiveRecord::Schema.define(version: 20150713072643) do
     t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "company"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,11 +88,12 @@ ActiveRecord::Schema.define(version: 20150713072643) do
   end
 
   create_table "workshops", force: :cascade do |t|
-    t.datetime "datetime"
+    t.datetime "datetime",         default: '2015-07-12 23:00:00'
     t.string   "location"
     t.integer  "workshop_type_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "project_id"
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
   end
 
 end

@@ -1,14 +1,16 @@
 # == Schema Information
 #
-# Table name: groups
+# Table name: participants
 #
 #  id         :integer          not null, primary key
-#  company    :string
 #  name       :string
+#  project_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Group < ActiveRecord::Base
-  has_many :clients
+class Participant < ActiveRecord::Base
+  belongs_to :project
+  has_and_belongs_to_many :workshops
+  has_many :phone_sessions
 end
