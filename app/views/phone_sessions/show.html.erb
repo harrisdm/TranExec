@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @phone_session.client_id %>
+</p>
+
+<p>
+  <strong>Phone session type:</strong>
+  <%= @phone_session.phone_session_type_id %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @phone_session.phone %>
+</p>
+
+<p>
+  <strong>Reminder:</strong>
+  <%= @phone_session.reminder %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @phone_session.email %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @phone_session.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_phone_session_path(@phone_session) %> |
+<%= link_to 'Back', phone_sessions_path %>

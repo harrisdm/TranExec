@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Phone Sessions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Phone session type</th>
+      <th>Phone</th>
+      <th>Reminder</th>
+      <th>Email</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phone_sessions.each do |phone_session| %>
+      <tr>
+        <td><%= phone_session.client_id %></td>
+        <td><%= phone_session.phone_session_type_id %></td>
+        <td><%= phone_session.phone %></td>
+        <td><%= phone_session.reminder %></td>
+        <td><%= phone_session.email %></td>
+        <td><%= phone_session.user_id %></td>
+        <td><%= link_to 'Show', phone_session %></td>
+        <td><%= link_to 'Edit', edit_phone_session_path(phone_session) %></td>
+        <td><%= link_to 'Destroy', phone_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phone session', new_phone_session_path %>

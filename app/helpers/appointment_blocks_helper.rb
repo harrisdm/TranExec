@@ -1,0 +1,2 @@
+module AppointmentBlocksHelper
+end

@@ -1,0 +1,29 @@
+<%= form_for(@appointment_block) do |f| %>
+  <% if @appointment_block.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment_block.errors.count, "error") %> prohibited this appointment_block from being saved:</h2>
+
+      <ul>
+      <% @appointment_block.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :workshop_id %><br>
+    <%= f.number_field :workshop_id %>
+  </div>
+  <div class="field">
+    <%= f.label :password_digest %><br>
+    <%= f.text_field :password_digest %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

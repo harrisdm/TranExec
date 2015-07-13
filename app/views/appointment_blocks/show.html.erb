@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Workshop:</strong>
+  <%= @appointment_block.workshop_id %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @appointment_block.password_digest %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @appointment_block.active %>
+</p>
+
+<%= link_to 'Edit', edit_appointment_block_path(@appointment_block) %> |
+<%= link_to 'Back', appointment_blocks_path %>

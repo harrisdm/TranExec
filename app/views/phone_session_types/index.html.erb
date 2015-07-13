@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Phone Session Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phone_session_types.each do |phone_session_type| %>
+      <tr>
+        <td><%= phone_session_type.name %></td>
+        <td><%= link_to 'Show', phone_session_type %></td>
+        <td><%= link_to 'Edit', edit_phone_session_type_path(phone_session_type) %></td>
+        <td><%= link_to 'Destroy', phone_session_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phone session type', new_phone_session_type_path %>
