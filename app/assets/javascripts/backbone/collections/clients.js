@@ -1,5 +1,8 @@
 var app = app || {};
+app.Collections = app.Collections || {};
 
-app.Clients = Backbone.Collection.extend({
-  model: app.Client
+app.Collections.Clients = Backbone.Collection.extend({
+  model: app.Models.Client,
+
+  url: '/clients'
 });

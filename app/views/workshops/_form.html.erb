@@ -40,6 +40,6 @@
     <%= f.select :project_id, Project.all.map { |p| ["#{p.company} - #{p.name}", p.id] }, {:include_blank => false}, {:class => 'form-control'} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

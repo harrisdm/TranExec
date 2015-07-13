@@ -1,5 +1,6 @@
 var app = app || {};
+app.Collections = app.Collections || {};
 
-app.Appointments = Backbone.Collection.extend({
+app.Collections.Appointments = Backbone.Collection.extend({
   model: app.Appointment
 });

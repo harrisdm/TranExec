@@ -2,13 +2,13 @@
 
 <h1>Listing Workshops</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Datetime</th>
-      <th>Location</th>
-      <th>Workshop type</th>
       <th>Project</th>
+      <th>Session</th>
+      <th>Date</th>
+      <th>Location</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @workshops.each do |workshop| %>
       <tr>
-        <td><%= workshop.datetime %></td>
+        <td><%= "#{workshop.project.company}, #{workshop.project.name}" %></td>
+        <td><%= workshop.workshop_type.name %></td>
+        <td><%= workshop.datetime.strftime("%a, %d %b %Y") %></td>
         <td><%= workshop.location %></td>
-        <td><%= workshop.workshop_type_id %></td>
-        <td><%= workshop.project_id %></td>
         <td><%= link_to 'Show', workshop %></td>
         <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
         <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
