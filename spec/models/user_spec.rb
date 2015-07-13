@@ -6,6 +6,7 @@
 #  username        :string
 #  email           :string
 #  password_digest :string
+#  name            :string
 #  coach           :boolean
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

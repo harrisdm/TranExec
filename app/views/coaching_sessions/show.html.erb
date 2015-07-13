@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @coaching_session.user_id %>
+</p>
+
+<p>
+  <strong>Workshop:</strong>
+  <%= @coaching_session.workshop_id %>
+</p>
+
+<%= link_to 'Edit', edit_coaching_session_path(@coaching_session) %> |
+<%= link_to 'Back', coaching_sessions_path %>

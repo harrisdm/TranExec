@@ -81,6 +81,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :coaching_sessions
   get 'pages/landing'
   get 'pages/home'
 

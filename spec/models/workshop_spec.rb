@@ -3,7 +3,7 @@
 # Table name: workshops
 #
 #  id               :integer          not null, primary key
-#  datetime         :datetime         default(Sun, 12 Jul 2015 23:00:00 UTC +00:00)
+#  datetime         :datetime
 #  location         :string
 #  workshop_type_id :integer
 #  project_id       :integer

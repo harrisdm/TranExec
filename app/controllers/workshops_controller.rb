@@ -16,6 +16,7 @@ class WorkshopsController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @workshop = Workshop.new
+    2.times { @workshop.coaching_sessions.build }
     # raise params.inspect
   end
 
@@ -71,6 +72,6 @@ class WorkshopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workshop_params
-      params.require(:workshop).permit(:datetime, :location, :workshop_type_id, :project_id)
+      params.require(:workshop).permit(:datetime, :location, :workshop_type_id, :project_id, [coaching_sessions_attributes: [:user_id]])
     end
 end

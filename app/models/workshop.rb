@@ -3,7 +3,7 @@
 # Table name: workshops
 #
 #  id               :integer          not null, primary key
-#  datetime         :datetime         default(Sun, 12 Jul 2015 23:00:00 UTC +00:00)
+#  datetime         :datetime
 #  location         :string
 #  workshop_type_id :integer
 #  project_id       :integer
@@ -13,8 +13,12 @@
 
 class Workshop < ActiveRecord::Base
   has_and_belongs_to_many :participants
-  has_and_belongs_to_many :users
+  # has_and_belongs_to_many :users
   belongs_to :workshop_type
   belongs_to :appointment_block
   belongs_to :project
+
+  has_many :coaching_sessions
+  has_many :users, :through => :coaching_sessions
+  accepts_nested_attributes_for :coaching_sessions, :reject_if => lambda { |a| a[:user_id].blank? }
 end
