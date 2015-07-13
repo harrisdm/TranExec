@@ -10,14 +10,14 @@
 
 Group.destroy_all
 PhoneSessionType.destroy_all
-WorkhopType.destroy_all
+WorkshopType.destroy_all
 
-pst1 = PhoneSessionType.create :name => 'Phone Session 1'
-pst1 = PhoneSessionType.create :name => 'Phone Session 2'
+pst1 = PhoneSessionType.create(:name => 'Phone Session 1')
+pst1 = PhoneSessionType.create(:name => 'Phone Session 2')
 
-wst1 = WorkhopType.create :name => 'Workshop 1'
-wst2 = WorkhopType.create :name => 'Workshop 2'
-wst3 = WorkhopType.create :name => 'Workshop 3'
+wst1 = WorkshopType.create(:name => 'Workshop 1')
+wst2 = WorkshopType.create(:name => 'Workshop 2')
+wst3 = WorkshopType.create(:name => 'Workshop 3')
 
 
 

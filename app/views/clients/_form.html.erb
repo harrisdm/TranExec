@@ -15,12 +15,12 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
     <%= f.label :group_id %><br>
-    <%= f.number_field :group_id %>
+    <%= f.select :group_id, Group.all.map { |group| ["#{group.company} - #{group.name}", group.id] }, :include_blank => false %>
   </div>
-
-  
+ 
 
   <div class="actions">
     <%= f.submit %>
