@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @workshops = Workshop.where(project_id: params[:id]).order(datetime: :desc)
   end
 
   # GET /projects/new
