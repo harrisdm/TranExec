@@ -7,4 +7,20 @@ Rails.application.routes.draw do
   resources :groups
   resources :clients
   resources :users
+
+  root :to => 'pages#landing'
+  get '/secure' => 'pages#secure'
+
+  namespace :admin do
+    resources :phone_session_types
+    resources :workshop_types
+    resources :groups
+    resources :clients
+    resources :users
+
+    resources :workshops do
+      resource :appointment_blocks
+      resources :phone_sessions
+    end
+  end
 end
