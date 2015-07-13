@@ -1,5 +1,5 @@
 AppointmentBlock.destroy_all
-Group.destroy_all
+Project.destroy_all
 PhoneSessionType.destroy_all
 WorkshopType.destroy_all
 
@@ -17,8 +17,8 @@ wst3 = WorkshopType.create(:name => 'Workshop 3')
 
 
 
-g1 = Group.create :company => 'Aldi', :name => "Area Managers"
-g2 = Group.create :company => 'Aldi', :name => "Store Managers"
-g3 = Group.create :company => 'Rebel Sports', :name => "Store Managers"
+p1 = Project.create :company => 'Aldi', :name => "Area Managers"
+p2 = Project.create :company => 'Aldi', :name => "Store Managers"
+p3 = Project.create :company => 'Rebel Sports', :name => "Store Managers"
 
 

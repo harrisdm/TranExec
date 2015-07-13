@@ -8,6 +8,7 @@
 #  phone                 :string
 #  reminder              :string
 #  email                 :string
+#  sms                   :string
 #  user_id               :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
@@ -15,6 +16,6 @@
 
 class PhoneSession < ActiveRecord::Base
   belongs_to :user
-  belongs_to :client
+  belongs_to :participant
   belongs_to :phone_session_type
 end
