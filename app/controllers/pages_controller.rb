@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  def landing
+  def home
   end
 
   def backbone

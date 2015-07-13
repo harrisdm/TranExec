@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :workshop_type_id %><br>
-    <%= f.number_field :workshop_type_id %>
+    <%= f.select :workshop_type_id, WorkshopType.all.map { |w| [w.name, w.id] }, :include_blank => false %>
   </div>
   <div class="actions">
     <%= f.submit %>
