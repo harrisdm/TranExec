@@ -39,14 +39,6 @@
 #                                  PATCH  /admin/users/:id(.:format)                                      users#update
 #                                  PUT    /admin/users/:id(.:format)                                      users#update
 #                                  DELETE /admin/users/:id(.:format)                                      users#destroy
-#                         projects GET    /admin/projects(.:format)                                       projects#index
-#                                  POST   /admin/projects(.:format)                                       projects#create
-#                      new_project GET    /admin/projects/new(.:format)                                   projects#new
-#                     edit_project GET    /admin/projects/:id/edit(.:format)                              projects#edit
-#                          project GET    /admin/projects/:id(.:format)                                   projects#show
-#                                  PATCH  /admin/projects/:id(.:format)                                   projects#update
-#                                  PUT    /admin/projects/:id(.:format)                                   projects#update
-#                                  DELETE /admin/projects/:id(.:format)                                   projects#destroy
 #      workshop_appointment_blocks POST   /admin/workshops/:workshop_id/appointment_blocks(.:format)      appointment_blocks#create
 #  new_workshop_appointment_blocks GET    /admin/workshops/:workshop_id/appointment_blocks/new(.:format)  appointment_blocks#new
 # edit_workshop_appointment_blocks GET    /admin/workshops/:workshop_id/appointment_blocks/edit(.:format) appointment_blocks#edit
@@ -70,6 +62,22 @@
 #                                  PATCH  /admin/workshops/:id(.:format)                                  workshops#update
 #                                  PUT    /admin/workshops/:id(.:format)                                  workshops#update
 #                                  DELETE /admin/workshops/:id(.:format)                                  workshops#destroy
+#                project_workshops GET    /admin/projects/:project_id/workshops(.:format)                 workshops#index
+#                                  POST   /admin/projects/:project_id/workshops(.:format)                 workshops#create
+#             new_project_workshop GET    /admin/projects/:project_id/workshops/new(.:format)             workshops#new
+#            edit_project_workshop GET    /admin/projects/:project_id/workshops/:id/edit(.:format)        workshops#edit
+#                 project_workshop GET    /admin/projects/:project_id/workshops/:id(.:format)             workshops#show
+#                                  PATCH  /admin/projects/:project_id/workshops/:id(.:format)             workshops#update
+#                                  PUT    /admin/projects/:project_id/workshops/:id(.:format)             workshops#update
+#                                  DELETE /admin/projects/:project_id/workshops/:id(.:format)             workshops#destroy
+#                         projects GET    /admin/projects(.:format)                                       projects#index
+#                                  POST   /admin/projects(.:format)                                       projects#create
+#                      new_project GET    /admin/projects/new(.:format)                                   projects#new
+#                     edit_project GET    /admin/projects/:id/edit(.:format)                              projects#edit
+#                          project GET    /admin/projects/:id(.:format)                                   projects#show
+#                                  PATCH  /admin/projects/:id(.:format)                                   projects#update
+#                                  PUT    /admin/projects/:id(.:format)                                   projects#update
+#                                  DELETE /admin/projects/:id(.:format)                                   projects#destroy
 #
 
 Rails.application.routes.draw do
@@ -97,12 +105,13 @@ Rails.application.routes.draw do
     resources :participants
     resources :users
 
-
-    resources :projects
-
     resources :workshops do
       resource :appointment_blocks
       resources :phone_sessions
+    end
+
+    resources :projects do
+      resources :workshops
     end
   end
 end

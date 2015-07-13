@@ -36,8 +36,8 @@
     <%= f.select :workshop_type_id, WorkshopType.all.map { |w| [w.name, w.id] }, {:include_blank => false}, {:class => 'form-control'} %>
   </div>
   <div class="form-group">
-    <%= f.label :project_id %>
-    <%= f.select :project_id, Project.all.map { |p| ["#{p.company} - #{p.name}", p.id] }, {:include_blank => false}, {:class => 'form-control'} %>
+    <%# f.label :project_id %>
+    <%= f.hidden_field :project_id, :value => params[:project_id] %>
   </div>
   <div class="actions">
     <%= f.submit :class => "btn btn-primary" %>

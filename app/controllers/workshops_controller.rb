@@ -14,7 +14,9 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops/new
   def new
+    @project = Project.find(params[:project_id])
     @workshop = Workshop.new
+    # raise params.inspect
   end
 
   # GET /workshops/1/edit
@@ -28,7 +30,7 @@ class WorkshopsController < ApplicationController
 
     respond_to do |format|
       if @workshop.save
-        format.html { redirect_to @workshop, notice: 'Workshop was successfully created.' }
+        format.html { redirect_to project_path(workshop_params[:project_id]), notice: 'Workshop was successfully created.' }
         format.json { render :show, status: :created, location: @workshop }
       else
         format.html { render :new }
@@ -56,7 +58,7 @@ class WorkshopsController < ApplicationController
   def destroy
     @workshop.destroy
     respond_to do |format|
-      format.html { redirect_to workshops_url, notice: 'Workshop was successfully destroyed.' }
+      format.html { redirect_to project_path(params[:project_id]), notice: 'Workshop was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Datetime:</strong>
-  <%= @workshop.datetime %>
+  <strong>Date:</strong>
+  <%= date_string(@workshop.datetime) %>
 </p>
 
 <p>
@@ -12,13 +12,13 @@
 
 <p>
   <strong>Workshop type:</strong>
-  <%= @workshop.workshop_type_id %>
+  <%= @workshop.workshop_type.name %>
 </p>
 
 <p>
   <strong>Project:</strong>
-  <%= @workshop.project_id %>
+  <%= "#{@workshop.project.company}, #{@workshop.project.name}" %>
 </p>
 
 <%= link_to 'Edit', edit_workshop_path(@workshop) %> |
-<%= link_to 'Back', workshops_path %>
+<%= link_to 'Back', project_path(@workshop.project_id) %>

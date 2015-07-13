@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150713072643) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "name"
     t.boolean  "coach"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -88,12 +89,12 @@ ActiveRecord::Schema.define(version: 20150713072643) do
   end
 
   create_table "workshops", force: :cascade do |t|
-    t.datetime "datetime",         default: '2015-07-12 23:00:00'
+    t.datetime "datetime"
     t.string   "location"
     t.integer  "workshop_type_id"
     t.integer  "project_id"
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
