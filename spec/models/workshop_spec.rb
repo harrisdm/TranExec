@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: workshops
+#
+#  id               :integer          not null, primary key
+#  datetime         :datetime
+#  location         :string
+#  workshop_type_id :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Workshop, type: :model do

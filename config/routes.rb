@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/landing'
+
   resources :appointment_blocks
   resources :phone_session_types
   resources :phone_sessions
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   resources :users
 
   root :to => 'pages#landing'
+  post '/appointment_block' => 'appointment_blocks#show'
+
   get '/secure' => 'pages#secure'
 
   namespace :admin do

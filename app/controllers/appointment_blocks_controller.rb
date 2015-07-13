@@ -1,5 +1,5 @@
 class AppointmentBlocksController < ApplicationController
-  before_action :set_appointment_block, only: [:show, :edit, :update, :destroy]
+  # before_action :set_appointment_block, only: [:show, :edit, :update, :destroy]
 
   # GET /appointment_blocks
   # GET /appointment_blocks.json
@@ -10,6 +10,10 @@ class AppointmentBlocksController < ApplicationController
   # GET /appointment_blocks/1
   # GET /appointment_blocks/1.json
   def show
+    access_code = params['access_code']
+    @appointment_block = AppointmentBlock.find_by :active => true, :code => access_code
+
+    raise 'hello'
   end
 
   # GET /appointment_blocks/new
