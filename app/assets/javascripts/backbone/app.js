@@ -1,5 +1,6 @@
 var app = app || {};
 
 $(document).ready(function() {
-  // Some stuff here
+  app.router = new app.Router();
+  Backbone.history.start();
 });
