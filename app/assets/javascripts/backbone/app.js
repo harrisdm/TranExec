@@ -1,4 +1,5 @@
 var app = app || {};
+app.Data = {};
 
 _.templateSettings = {
   evaluate : /\{\[([\s\S]+?)\]\}/g,

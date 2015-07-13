@@ -1,5 +1,6 @@
 var app = app || {};
+app.Models = app.Models || {};
 
-app.Appointment = Backbone.Model.extend({
+app.Models.Appointment = Backbone.Model.extend({
 
 });

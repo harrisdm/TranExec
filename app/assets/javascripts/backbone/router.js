@@ -6,9 +6,9 @@ app.Router = Backbone.Router.extend({
   },
 
   clients: function() {
-    var clients = new app.Clients();
+    var clients = new app.Collections.Clients();
     clients.fetch().done(function() {
-      var clientListView = new app.ClientListView({ collection: clients });
+      var clientListView = new app.Views.ClientListView({ collection: clients });
       clientListView.render();
     });
   }

@@ -1,6 +1,7 @@
 var app = app || {};
+app.Views = app.Views || {};
 
-app.ClientView = Backbone.View.extend({
+app.Views.ClientView = Backbone.View.extend({
   el: '#clientList',
 
   render: function() {

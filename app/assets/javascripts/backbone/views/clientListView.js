@@ -1,6 +1,7 @@
 var app = app || {};
+app.Views = app.Views || {};
 
-app.ClientListView = Backbone.View.extend({
+app.Views.ClientListView = Backbone.View.extend({
   el: '#app',
 
   render: function() {
@@ -8,7 +9,7 @@ app.ClientListView = Backbone.View.extend({
     this.$el.html(template);
 
     this.collection.each(function(client) {
-      var clientView = new app.ClientView({ model: client });
+      var clientView = new app.Views.ClientView({ model: client });
       clientView.render();
     });
 
