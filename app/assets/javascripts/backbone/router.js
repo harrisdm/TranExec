@@ -2,7 +2,8 @@ var app = app || {};
 
 app.Router = Backbone.Router.extend({
   routes: {
-    '': 'clients'
+    '': 'clients',
+    'timeslots': 'timeSlots'
   },
 
   clients: function() {
@@ -11,5 +12,9 @@ app.Router = Backbone.Router.extend({
       var clientListView = new app.Views.ClientListView({ collection: clients });
       clientListView.render();
     });
+  },
+
+  timeSlots: function() {
+    console.log('show time slots');
   }
 });

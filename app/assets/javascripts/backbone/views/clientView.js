@@ -2,12 +2,22 @@ var app = app || {};
 app.Views = app.Views || {};
 
 app.Views.ClientView = Backbone.View.extend({
-  el: '#clientList',
+  tagName: 'a',
+  className: "list-group-item",
 
-  render: function() {
+  events: {
+    'click': 'clickFunction'
+  },
+
+  render: function(parentView) {
     var viewTemplate = $('#clientTemplate').html();
     var viewHTML = _.template(viewTemplate);
 
-    this.$el.append( viewHTML(this.model.toJSON()) );
+    var listItem = this.$el.append( viewHTML(this.model.toJSON()) );
+    parentView.append(listItem);
+  },
+
+  clickFunction: function() {
+    console.log('Clicked', this.model.get('name'));
   }
 });
