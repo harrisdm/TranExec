@@ -6,6 +6,8 @@ class WorkshopsController < ApplicationController
 
   def show
     @workshop = Workshop.find(params[:id])
+    @participants = @workshop.project.participants
+    #raise params.inspect
   end
 
   def new

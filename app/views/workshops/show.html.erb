@@ -31,5 +31,55 @@
 </p>
 <% end %>
 
+<% unless @workshop.participants.empty? %>
+<p>
+  <strong>Participants:</strong>
+  <ul>
+    <% @workshop.participants.each do |participant| %>
+      <li><%= participant.name %></li>
+    <% end %>
+  </ul>
+</p>
+<% end %>
+
+<%= form_tag(workshop_participants_path(@workshop), :method=>'post') do %>
+  <div class="dynamic-fields">
+    <%= render "participant_fields" %>
+  </div>
+  <p>
+    <%# link_to_add_fields "Add Participant", f, :participants %>
+  </p>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Add Participant", class: "btn btn-large btn-primary" %>
+  </div>  
+<% end %>
+
 <%= link_to 'Edit', edit_workshop_path(@workshop) %> |
 <%= link_to 'Back', project_path(@workshop.project_id) %>
+
+
+
+<% unless @participants.empty? %>
+<p>
+  <strong>Project Participants:</strong>
+  <ul>
+    <% @participants.each do |participant| %>
+      <li><%= participant.name %></li>
+    <% end %>
+  </ul>
+</p>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
