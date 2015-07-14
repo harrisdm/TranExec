@@ -1,5 +1,4 @@
 var app = app || {};
-app.Data = {};
 app.WebSockets = {};
 
 _.templateSettings = {

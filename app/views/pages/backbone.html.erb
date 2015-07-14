@@ -1,8 +1,11 @@
 <div id="app"></div>
 
+<script>
+  var app = app || {};
+  app.Data = {};
 
-
-
+  app.Data.appointment_block_id = <%= @appointment_block.id %>;
+</script>
 
 <script id="clientListTemplate" type="text/template">
   <div id="clientList" class="list-group"></div>
