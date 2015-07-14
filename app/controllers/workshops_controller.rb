@@ -43,6 +43,7 @@ class WorkshopsController < ApplicationController
   # PATCH/PUT /workshops/1
   # PATCH/PUT /workshops/1.json
   def update
+    #raise params.inspect
     respond_to do |format|
       if @workshop.update(workshop_params)
         format.html { redirect_to @workshop, notice: 'Workshop was successfully updated.' }
@@ -57,6 +58,7 @@ class WorkshopsController < ApplicationController
   # DELETE /workshops/1
   # DELETE /workshops/1.json
   def destroy
+    #raise params.inspect
     @workshop.destroy
     respond_to do |format|
       format.html { redirect_to project_path(params[:project_id]), notice: 'Workshop was successfully destroyed.' }
@@ -72,6 +74,6 @@ class WorkshopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workshop_params
-      params.require(:workshop).permit(:datetime, :location, :workshop_type_id, :project_id, [coaching_sessions_attributes: [:user_id]])
+      params.require(:workshop).permit(:datetime, :location, :workshop_type_id, :project_id, [coaching_sessions_attributes: [:id, :user_id, :_destroy]])
     end
 end

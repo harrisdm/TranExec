@@ -20,5 +20,7 @@ class Workshop < ActiveRecord::Base
 
   has_many :coaching_sessions
   has_many :users, :through => :coaching_sessions
-  accepts_nested_attributes_for :coaching_sessions, :reject_if => lambda { |a| a[:user_id].blank? }
+  accepts_nested_attributes_for :coaching_sessions, 
+      :reject_if => lambda { |a| a[:user_id].blank? }, 
+      :allow_destroy => true
 end

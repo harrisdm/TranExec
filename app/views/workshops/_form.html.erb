@@ -38,12 +38,13 @@
   </div>
 
 
-  <div class="form-group">
+  
     <%= f.fields_for :coaching_sessions do |builder| %>
-      <%= builder.label :user_id %>
-      <%= builder.select :user_id, User.where(:coach => true).map { |c| [c.name, c.id] }, {:include_blank => false}, {:class => 'form-control'} %>
+    
+      <%= render "coach_fields", :f => builder %>
+
     <% end %>
-  </div>
+  
 
   <div class="form-group">
     <%# f.label :project_id %>

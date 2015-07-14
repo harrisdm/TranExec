@@ -21,8 +21,13 @@
 </p>
 
 <p>
-  
+  <strong>Coaches:</strong>
+  <ul>
+    <% for coaching_session in @workshop.coaching_sessions %>
+      <li><%= coaching_session.user.name %></li>
+    <% end %>
+  </ul>
 </p>
 
-<%= link_to 'Edit', edit_workshop_path(@workshop) %> |
+<%= link_to 'Edit', edit_project_workshop_path(project_id: @workshop.project_id, id: @workshop.id ) %> |
 <%= link_to 'Back', project_path(@workshop.project_id) %>

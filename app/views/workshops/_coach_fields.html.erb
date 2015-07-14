@@ -1,0 +1,7 @@
+
+<div class="form-group">
+  <%= f.label :user_id, "Coach" %>
+  <%= f.select :user_id, User.where(:coach => true).map { |c| [c.name, c.id] }, {:include_blank => false}, {:class => 'form-control'} %>
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Coach" %>
+</div>
