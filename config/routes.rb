@@ -81,12 +81,18 @@
 #
 
 Rails.application.routes.draw do
+  get 'backbone/clients'
+
   resources :coaching_sessions
   get 'pages/landing'
   get 'pages/home'
 
-  post '/appointment_block' => 'appointment_blocks#show'
+  post '/appointment_block' => 'backbone#index'
   get '/appointment_block' => 'pages#backbone', :as => 'backbone'
+
+  scope :backbone do
+    get '/:code/participants' => 'backbone#participants'
+  end
 
   root :to => 'pages#home'
   get '/secure' => 'pages#secure'
