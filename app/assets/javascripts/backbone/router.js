@@ -2,11 +2,11 @@ var app = app || {};
 
 app.Router = Backbone.Router.extend({
   routes: {
-    '': 'participants',
-    'timeslots': 'timeSlots'
+    '': 'showParticipants',
+    'appointments': 'showAppointments'
   },
 
-  participants: function() {
+  showParticipants: function() {
     var participants = new app.Collections.Participants();
     participants.fetch().done(function() {
       var participantsView = new app.Views.ParticipantsView({ collection: participants });
@@ -14,7 +14,8 @@ app.Router = Backbone.Router.extend({
     });
   },
 
-  timeSlots: function() {
-    console.log('show time slots');
+  showAppointments: function() {
+    var appointmentsView = new app.AppointmentsView();
+    appointmentsView.render();
   }
 });

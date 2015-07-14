@@ -5,6 +5,6 @@ app.Collections.Participants = Backbone.Collection.extend({
   model: app.Models.Participant,
 
   url: function() {
-    return '/backbone/' + app.Data.accessCode + '/participants'
+    return '/backbone/' + app.Data.accessCode + '/participants';
   }
 });

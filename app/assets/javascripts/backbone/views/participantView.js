@@ -18,6 +18,6 @@ app.Views.ParticipantView = Backbone.View.extend({
   },
 
   clickFunction: function() {
-    console.log('Clicked', this.model.get('name'));
+    app.router.navigate('appointments', true);
   }
 });
