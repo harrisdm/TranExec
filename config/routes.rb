@@ -89,6 +89,7 @@ Rails.application.routes.draw do
 
   post '/appointment_block' => 'backbone#index'
   get '/appointment_block' => 'pages#backbone', :as => 'backbone'
+  get '/xls_demo' => 'pages#xls_demo'
 
   scope :backbone do
     get '/:code/participants' => 'backbone#participants'
