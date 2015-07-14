@@ -15,10 +15,10 @@ app.Router = Backbone.Router.extend({
   },
 
   showAppointments: function() {
-    var appointments = new app.Collections.Appointments();
-    appointments.fetch().done(function() {
-      app.appointmentsView = new app.Views.AppointmentsView({ collection: appointments });
-      app.appointmentsView.render();
+    app.appointments = new app.Collections.Appointments();
+    app.appointments.fetch().done(function() {
+      var appointmentsView = new app.Views.AppointmentsView({ collection: app.appointments });
+      appointmentsView.render();
     });
   }
 });

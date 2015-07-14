@@ -16,7 +16,9 @@ class BackboneController < ApplicationController
 
   def appointments
     appointment_block = appointment_block_from_code
-    render json: appointment_block.appointments
+    appointments = appointment_block.appointments.where :participant_id => nil
+
+    render json: appointments
   end
 
   private
