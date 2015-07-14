@@ -1,7 +1,12 @@
 class BackboneController < ApplicationController
   def index
     @appointment_block = appointment_block_from_code
-    render 'pages/backbone'
+
+    if @appointment_block
+      render 'pages/backbone'
+    else
+      redirect_to root_path
+    end
   end
 
   def participants

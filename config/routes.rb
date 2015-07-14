@@ -87,10 +87,10 @@ Rails.application.routes.draw do
   get 'pages/landing'
   get 'pages/home'
 
-  post '/appointment_block' => 'backbone#index'
-  get '/appointment_block' => 'pages#backbone', :as => 'backbone'
   get '/xls_demo' => 'pages#xls_demo'
 
+  post '/bookings' => 'backbone#index'
+  get '/bookings' => 'pages#backbone', :as => 'backbone'
   scope :backbone do
     get '/:code/participants' => 'backbone#participants'
     get '/:code/appointments' => 'backbone#appointments'
