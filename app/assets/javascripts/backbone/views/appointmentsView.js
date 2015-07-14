@@ -1,6 +1,7 @@
 var app = app || {};
+app.Views = app.Views || {};
 
-app.AppointmentsView = Backbone.View.extend({
+app.Views.AppointmentsView = Backbone.View.extend({
   el: '#app',
 
   render: function() {

@@ -5,6 +5,6 @@ app.Collections.Appointments = Backbone.Collection.extend({
   model: app.Appointment,
 
   url: function() {
-    return '/backbone/' + app.Data.accessCode + '/participants/' + app.Data.clientID;
+    return '/backbone/' + app.Data.accessCode + '/appointments';
   }
 });

@@ -92,6 +92,7 @@ Rails.application.routes.draw do
 
   scope :backbone do
     get '/:code/participants' => 'backbone#participants'
+    get '/:code/appointments' => 'backbone#appointments'
   end
 
   root :to => 'pages#home'

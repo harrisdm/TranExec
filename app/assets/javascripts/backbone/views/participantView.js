@@ -6,7 +6,7 @@ app.Views.ParticipantView = Backbone.View.extend({
   className: "list-group-item",
 
   events: {
-    'click': 'clickFunction'
+    'click': 'showAppointments'
   },
 
   render: function(parentView) {
@@ -17,7 +17,8 @@ app.Views.ParticipantView = Backbone.View.extend({
     parentView.append(listItem);
   },
 
-  clickFunction: function() {
+  showAppointments: function() {
+    app.Data.clientID = this.model.get('id');
     app.router.navigate('appointments', true);
   }
 });
