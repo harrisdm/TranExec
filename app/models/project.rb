@@ -12,4 +12,11 @@
 class Project < ActiveRecord::Base
   has_many :participants
   has_many :workshops
+
+  validates :company, presence: true
+  validates :company, length: { maximum: 100 }
+
+  validates :name, presence: true
+  validates :name, length: { maximum: 200 }
+  
 end
