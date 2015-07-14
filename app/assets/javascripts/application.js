@@ -20,3 +20,20 @@
 //= require_tree .
 //= require websocket_rails/main
 
+
+
+function remove_fields(link) {
+  $(link).previous("input[type=hidden]").value = "1";
+  $(link).up(".fields").hide();
+}
+
+
+$(document).ready(function() {
+
+  $('.remove_link').on("click", function(){
+    $(this).prev("input[type=hidden]").val(1);
+    $(this).parent(".fields").hide();
+  });
+    
+
+});
