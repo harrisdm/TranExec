@@ -12,10 +12,11 @@ $(document).ready(function() {
   }
 
   app.WebSockets.dispatcher = new WebSocketRails(window.location.host + '/websocket');
-  app.WebSockets.channel = app.WebSockets.dispatcher.subscribe('ABC123');
+  app.WebSockets.channel = app.WebSockets.dispatcher.subscribe(app.Data.accessCode);
   app.WebSockets.channel.bind('new_booking', function(data) {
-    // This event will be triggered every time a new booking for
-    // appointment block ABC123 is registered on the server.
+    if (app.appointmentsView) {
+      app.appointmentsView.render();
+    }
   });
 
   app.router = new app.Router();

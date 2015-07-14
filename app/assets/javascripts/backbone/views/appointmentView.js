@@ -5,6 +5,10 @@ app.Views.AppointmentView = Backbone.View.extend({
   tagName: 'a',
   className: "list-group-item",
 
+  events: {
+    'click': 'bookAppointment'
+  },
+
   render: function(parentView) {
     var viewTemplate = $('#appointmentTemplate').html();
     var viewHTML = _.template(viewTemplate);
@@ -16,4 +20,8 @@ app.Views.AppointmentView = Backbone.View.extend({
     var view = this.$el.append( viewHTML(data) );
     parentView.append(view);
   },
+
+  bookAppointment: function() {
+    app.WebSockets.channel.trigger('new_booking');
+  }
 });

@@ -7,6 +7,7 @@ app.Views.AppointmentsView = Backbone.View.extend({
   render: function() {
     var viewTemplate = $('#appointmentsTemplate').html();
     this.$el.html(viewTemplate);
+    console.log('rendering view');
 
     var that = this;
     this.collection.each(function(appointment) {
