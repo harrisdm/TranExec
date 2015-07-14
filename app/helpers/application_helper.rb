@@ -10,10 +10,6 @@ module ApplicationHelper
     f.hidden_field(:_destroy) + link_to(name, "javascript:void(0);", :class => "remove_link")
   end
 
-
-  # def link_to_remove_fields(name, f)
-  #   f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
-  # end
   
   def link_to_add_fields(name, f, association)
     new_object = f.object.class.reflect_on_association(association).klass.new
@@ -23,8 +19,6 @@ module ApplicationHelper
     id = new_object.object_id
     link_to(name, '#', class: "add_link", data: {class: id, fields: fields.gsub("\n", "")})
   end
-
-
 
 
 end

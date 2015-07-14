@@ -112,7 +112,7 @@ Rails.application.routes.draw do
     # end
 
     resources :projects do
-      resources :workshops
+      resources :workshops, shallow: true
     end
   end
 end

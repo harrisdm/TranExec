@@ -15,8 +15,8 @@ class WorkshopsController < ApplicationController
   # GET /workshops/new
   def new
     @project = Project.find(params[:project_id])
-    @workshop = Workshop.new
-    2.times { @workshop.coaching_sessions.build }
+    @workshop = @project.workshops.build
+    # 2.times { @workshop.coaching_sessions.build }
     # raise params.inspect
   end
 
@@ -27,6 +27,7 @@ class WorkshopsController < ApplicationController
   # POST /workshops
   # POST /workshops.json
   def create
+    raise params.inspect
     @workshop = Workshop.new(workshop_params)
 
     respond_to do |format|
@@ -49,8 +50,8 @@ class WorkshopsController < ApplicationController
         format.html { redirect_to project_path(workshop_params[:project_id]), notice: 'Workshop was successfully updated.' }
         format.json { render :show, status: :ok, location: @workshop }
       else
-        # format.html { render :edit }
-        format.html { redirect_to edit_project_workshop_path(project_id: @workshop.project_id, id: @workshop.id) }
+        format.html { render :edit }
+        #format.html { redirect_to edit_project_workshop_path(project_id: @workshop.project_id, id: @workshop.id) }
         format.json { render json: @workshop.errors, status: :unprocessable_entity }
       end
     end
@@ -62,7 +63,7 @@ class WorkshopsController < ApplicationController
     #raise params.inspect
     @workshop.destroy
     respond_to do |format|
-      format.html { redirect_to project_path(params[:project_id]), notice: 'Workshop was successfully destroyed.' }
+      format.html { redirect_to project_path(@workshop.project_id), notice: 'Workshop was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

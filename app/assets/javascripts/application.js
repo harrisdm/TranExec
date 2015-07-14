@@ -21,7 +21,7 @@
 //= require websocket_rails/main
 
 
-var clickRemoveLink = function(){
+var onClickRemoveLink = function(){
   $('.remove_link').on("click", function(){
     $(this).prev("input[type=hidden]").val(1);
     $(this).parent(".fields").hide();
@@ -32,7 +32,7 @@ var clickRemoveLink = function(){
 $(document).ready(function() {
 
 
-  clickRemoveLink();
+  onClickRemoveLink();
     
 
   $('.add_link').on("click", function(){
@@ -41,7 +41,7 @@ $(document).ready(function() {
     new_fields = new_fields.replace(/new_coaching_sessions/g, new_id);
     
     $(".dynamic-fields").append($(new_fields));
-    clickRemoveLink();
+    onClickRemoveLink();
   });
 
 
