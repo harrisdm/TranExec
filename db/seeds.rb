@@ -39,4 +39,4 @@ ab1 = AppointmentBlock.create :code => 'ABC123', :active => true
 ab1.appointments << a1
 ab1.update :workshop_id => ws1.id
 
-ab2 = AppointmentBlock.create :code => 'ABC456', :active => false
+ab2 = AppointmentBlock.create :code => 'ABC456', :active => true

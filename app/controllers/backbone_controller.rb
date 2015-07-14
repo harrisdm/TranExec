@@ -5,13 +5,13 @@ class BackboneController < ApplicationController
   end
 
   def participants
-    participants = Participant.all
-    render json: participants
+    appointment_block = appointment_block_from_code
+    render json: appointment_block.participants
   end
 
   def appointments
     appointment_block = appointment_block_from_code
-    render json: appointment_block.participants
+    render json: appointment_block.appointments
   end
 
   private
