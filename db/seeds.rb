@@ -33,5 +33,10 @@ ws4 = Workshop.create :datetime => "2015-7-15 9:00:00", :location => "Melbourne"
 ws4 = Workshop.create :datetime => "2015-7-16 9:00:00", :location => "Melbourne", :workshop_type_id => 1, :project_id => 3
 ws5 = Workshop.create :datetime => "2015-8-2 9:00:00", :location => "Melbourne", :workshop_type_id => 2, :project_id => 3
 
+a1 = Appointment.create
+
 ab1 = AppointmentBlock.create :code => 'ABC123', :active => true
+ab1.appointments << a1
+ab1.update :workshop_id => ws1.id
+
 ab2 = AppointmentBlock.create :code => 'ABC456', :active => false
