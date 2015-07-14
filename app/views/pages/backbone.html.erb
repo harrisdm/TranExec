@@ -1,13 +1,25 @@
 <div id="app"></div>
 
+<script>
+  var app = app || {};
+  app.Data = {};
 
+  app.Data.accessCode = '<%= params['code'] %>';
+  app.Data.appointment_block_id = <%= @appointment_block.id %>;
+</script>
 
-
-
-<script id="clientListTemplate" type="text/template">
+<script id="participantsTemplate" type="text/template">
   <div id="clientList" class="list-group"></div>
 </script>
 
-<script id="clientTemplate" type="text/template">
+<script id="participantTemplate" type="text/template">
   {{ name }}
+</script>
+
+<script id="appointmentsTemplate" type="text/template">
+  This is the appointments template
+</script>
+
+<script id="appointmentTemplate" type="text/template">
+  {{ datetime_nice }}
 </script>

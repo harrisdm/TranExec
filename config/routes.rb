@@ -81,21 +81,21 @@
 #
 
 Rails.application.routes.draw do
+  get 'backbone/clients'
+
   resources :coaching_sessions
   get 'pages/landing'
   get 'pages/home'
 
-  # resources :appointment_blocks
-  # resources :phone_session_types
-  # resources :phone_sessions
-  # resources :workshop_types
-  # resources :workshops
-  # resources :groups
-  # resources :clients
-  # resources :users
+  get '/xls_demo' => 'pages#xls_demo'
 
-  post '/appointment_block' => 'appointment_blocks#show'
-  get '/appointment_block' => 'pages#backbone', :as => 'backbone'
+  post '/bookings' => 'backbone#index'
+  get '/bookings' => 'pages#backbone', :as => 'backbone'
+  scope :backbone do
+    get '/:code/participants' => 'backbone#participants'
+    get '/:code/appointments' => 'backbone#appointments'
+    put '/:code/appointments/:id' => 'backbone#make_booking'
+  end
 
   root :to => 'pages#home'
   get '/secure' => 'pages#secure'
@@ -106,13 +106,11 @@ Rails.application.routes.draw do
     resources :participants
     resources :users
 
-    resources :workshops do
-      resource :appointment_blocks
-      resources :phone_sessions
-    end
-
     resources :projects do
-      resources :workshops
+      resources :workshops do
+        resource :appointment_blocks
+        resources :phone_sessions
+      end
     end
   end
 end

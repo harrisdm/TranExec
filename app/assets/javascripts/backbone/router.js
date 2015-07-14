@@ -2,19 +2,23 @@ var app = app || {};
 
 app.Router = Backbone.Router.extend({
   routes: {
-    '': 'clients',
-    'timeslots': 'timeSlots'
+    '': 'showParticipants',
+    'appointments': 'showAppointments'
   },
 
-  clients: function() {
-    var clients = new app.Collections.Clients();
-    clients.fetch().done(function() {
-      var clientListView = new app.Views.ClientListView({ collection: clients });
-      clientListView.render();
+  showParticipants: function() {
+    var participants = new app.Collections.Participants();
+    participants.fetch().done(function() {
+      var participantsView = new app.Views.ParticipantsView({ collection: participants });
+      participantsView.render();
     });
   },
 
-  timeSlots: function() {
-    console.log('show time slots');
+  showAppointments: function() {
+    app.appointments = new app.Collections.Appointments();
+    app.appointments.fetch().done(function() {
+      var appointmentsView = new app.Views.AppointmentsView({ collection: app.appointments });
+      appointmentsView.render();
+    });
   }
 });

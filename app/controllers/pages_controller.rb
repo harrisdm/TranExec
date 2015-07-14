@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def backbone
   end
+
+  def xls_demo
+  end
 end
