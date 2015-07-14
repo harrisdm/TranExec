@@ -85,15 +85,6 @@ Rails.application.routes.draw do
   get 'pages/landing'
   get 'pages/home'
 
-  # resources :appointment_blocks
-  # resources :phone_session_types
-  # resources :phone_sessions
-  # resources :workshop_types
-  # resources :workshops
-  # resources :groups
-  # resources :clients
-  # resources :users
-
   post '/appointment_block' => 'appointment_blocks#show'
   get '/appointment_block' => 'pages#backbone', :as => 'backbone'
 
@@ -106,13 +97,11 @@ Rails.application.routes.draw do
     resources :participants
     resources :users
 
-    resources :workshops do
-      resource :appointment_blocks
-      resources :phone_sessions
-    end
-
     resources :projects do
-      resources :workshops
+      resources :workshops do
+        resource :appointment_blocks
+        resources :phone_sessions
+      end
     end
   end
 end
