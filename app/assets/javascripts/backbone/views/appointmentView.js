@@ -9,7 +9,11 @@ app.Views.AppointmentView = Backbone.View.extend({
     var viewTemplate = $('#appointmentTemplate').html();
     var viewHTML = _.template(viewTemplate);
 
-    var view = this.$el.append( viewHTML(this.model.toJSON()) );
+    var data = this.model.toJSON();
+    var day = moment(data.datetime);
+    data.datetime_nice = day.format('MMMM Do YYYY, h:mm:ss a');
+
+    var view = this.$el.append( viewHTML(data) );
     parentView.append(view);
   },
 });

@@ -1,4 +1,5 @@
 AppointmentBlock.destroy_all
+Appointment.destroy_all
 Project.destroy_all
 PhoneSessionType.destroy_all
 WorkshopType.destroy_all
@@ -33,10 +34,12 @@ ws4 = Workshop.create :datetime => "2015-7-15 9:00:00", :location => "Melbourne"
 ws4 = Workshop.create :datetime => "2015-7-16 9:00:00", :location => "Melbourne", :workshop_type_id => 1, :project_id => 3
 ws5 = Workshop.create :datetime => "2015-8-2 9:00:00", :location => "Melbourne", :workshop_type_id => 2, :project_id => 3
 
-a1 = Appointment.create
+a1 = Appointment.create :datetime => '2015-07-14 2:30'
+a2 = Appointment.create :datetime => '2015-07-14 3:30'
+a3 = Appointment.create :datetime => '2015-07-14 4:30'
 
 ab1 = AppointmentBlock.create :code => 'ABC123', :active => true
-ab1.appointments << a1
+ab1.appointments << a1 << a2 << a3
 ab1.update :workshop_id => ws1.id
 
 ab2 = AppointmentBlock.create :code => 'ABC456', :active => true
