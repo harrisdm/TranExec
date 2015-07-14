@@ -46,10 +46,11 @@ class WorkshopsController < ApplicationController
     #raise params.inspect
     respond_to do |format|
       if @workshop.update(workshop_params)
-        format.html { redirect_to @workshop, notice: 'Workshop was successfully updated.' }
+        format.html { redirect_to project_path(workshop_params[:project_id]), notice: 'Workshop was successfully updated.' }
         format.json { render :show, status: :ok, location: @workshop }
       else
-        format.html { render :edit }
+        # format.html { render :edit }
+        format.html { redirect_to edit_project_workshop_path(project_id: @workshop.project_id, id: @workshop.id) }
         format.json { render json: @workshop.errors, status: :unprocessable_entity }
       end
     end

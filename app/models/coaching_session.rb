@@ -14,5 +14,6 @@ class CoachingSession < ActiveRecord::Base
   belongs_to :user
   belongs_to :workshop
   
-  validates_uniqueness_of :user_id, :scope => :workshop_id
+  # validates_uniqueness_of :user_id, :scope => :workshop_id
+  validates :user_id, uniqueness: {scope: :workshop_id}
 end

@@ -21,19 +21,36 @@
 //= require websocket_rails/main
 
 
-
-function remove_fields(link) {
-  $(link).previous("input[type=hidden]").value = "1";
-  $(link).up(".fields").hide();
-}
-
-
-$(document).ready(function() {
-
+var clickRemoveLink = function(){
   $('.remove_link').on("click", function(){
     $(this).prev("input[type=hidden]").val(1);
     $(this).parent(".fields").hide();
   });
+};
+
+
+$(document).ready(function() {
+
+
+  clickRemoveLink();
     
 
+  $('.add_link').on("click", function(){
+    var new_fields = $(this).data("fields");
+    var new_id = new Date().getTime();
+    new_fields = new_fields.replace(/new_coaching_sessions/g, new_id);
+    
+    $(".dynamic-fields").append($(new_fields));
+    clickRemoveLink();
+  });
+
+
+
 });
+
+
+
+
+
+
+

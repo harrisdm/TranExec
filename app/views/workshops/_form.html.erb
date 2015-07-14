@@ -38,10 +38,14 @@
   </div>
 
 
-  
+  <div class="dynamic-fields">
     <%= f.fields_for :coaching_sessions do |builder| %>
-      <%= render "coach_fields", :f => builder %>
+      <%= render "coaching_session_fields", :f => builder %>
     <% end %>
+  </div>
+    <p>
+      <%= link_to_add_fields "Add Coach", f, :coaching_sessions %>
+    </p>
   
 
   <div class="form-group">

@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20150713183457) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "coaching_sessions", ["user_id", "workshop_id"], name: "index_coaching_sessions_on_user_id_and_workshop_id", unique: true, using: :btree
+
   create_table "participants", force: :cascade do |t|
     t.string   "name"
     t.integer  "project_id"
