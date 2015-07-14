@@ -18,7 +18,7 @@ app.Views.ParticipantView = Backbone.View.extend({
   },
 
   showAppointments: function() {
-    app.Data.clientID = this.model.get('id');
+    app.Data.participantID = this.model.get('id');
     app.router.navigate('appointments', true);
   }
 });

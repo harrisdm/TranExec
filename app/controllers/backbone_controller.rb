@@ -21,9 +21,20 @@ class BackboneController < ApplicationController
     render json: appointments
   end
 
+  def make_booking
+    appointment = Appointment.find params['id']
+    appointment.update appointment_params
+
+    render text: 'booking successful'
+  end
+
   private
   def appointment_block_from_code
     code = params['code']
     AppointmentBlock.find_by :active => true, :code => code
+  end
+
+  def appointment_params
+    params.require(:backbone).permit(:participant_id)
   end
 end
