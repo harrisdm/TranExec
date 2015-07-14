@@ -20,6 +20,7 @@
   <%= "#{@workshop.project.company}, #{@workshop.project.name}" %>
 </p>
 
+<% unless @workshop.coaching_sessions.empty? %>
 <p>
   <strong>Coaches:</strong>
   <ul>
@@ -28,6 +29,7 @@
     <% end %>
   </ul>
 </p>
+<% end %>
 
-<%= link_to 'Edit', edit_project_workshop_path(project_id: @workshop.project_id, id: @workshop.id ) %> |
+<%= link_to 'Edit', edit_workshop_path(@workshop) %> |
 <%= link_to 'Back', project_path(@workshop.project_id) %>

@@ -21,3 +21,37 @@
 //= require_tree .
 //= require websocket_rails/main
 
+
+var onClickRemoveLink = function(){
+  $('.remove_link').on("click", function(){
+    $(this).prev("input[type=hidden]").val(1);
+    $(this).parent(".fields").hide();
+  });
+};
+
+
+$(document).ready(function() {
+
+
+  onClickRemoveLink();
+    
+
+  $('.add_link').on("click", function(){
+    var new_fields = $(this).data("fields");
+    var new_id = new Date().getTime();
+    new_fields = new_fields.replace(/new_coaching_sessions/g, new_id);
+    
+    $(".dynamic-fields").append($(new_fields));
+    onClickRemoveLink();
+  });
+
+
+
+});
+
+
+
+
+
+
+

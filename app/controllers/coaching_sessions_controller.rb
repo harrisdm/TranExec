@@ -24,6 +24,7 @@ class CoachingSessionsController < ApplicationController
   # POST /coaching_sessions
   # POST /coaching_sessions.json
   def create
+    # raise params.inspect
     @coaching_session = CoachingSession.new(coaching_session_params)
 
     respond_to do |format|

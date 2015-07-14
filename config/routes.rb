@@ -106,11 +106,14 @@ Rails.application.routes.draw do
     resources :participants
     resources :users
 
+
+    # resources :workshops do
+    #   resource :appointment_blocks
+    #   resources :phone_sessions
+    # end
+
     resources :projects do
-      resources :workshops do
-        resource :appointment_blocks
-        resources :phone_sessions
-      end
+      resources :workshops, shallow: true
     end
   end
 end
