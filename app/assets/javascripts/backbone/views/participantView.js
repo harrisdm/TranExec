@@ -1,7 +1,7 @@
 var app = app || {};
 app.Views = app.Views || {};
 
-app.Views.ClientView = Backbone.View.extend({
+app.Views.ParticipantView = Backbone.View.extend({
   tagName: 'a',
   className: "list-group-item",
 
@@ -10,7 +10,7 @@ app.Views.ClientView = Backbone.View.extend({
   },
 
   render: function(parentView) {
-    var viewTemplate = $('#clientTemplate').html();
+    var viewTemplate = $('#participantTemplate').html();
     var viewHTML = _.template(viewTemplate);
 
     var listItem = this.$el.append( viewHTML(this.model.toJSON()) );

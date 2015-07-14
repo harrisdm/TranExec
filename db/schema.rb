@@ -25,21 +25,6 @@ ActiveRecord::Schema.define(version: 20150713183457) do
     t.string   "code"
   end
 
-  create_table "clients", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "clients_workshops", id: false, force: :cascade do |t|
-    t.integer "client_id"
-    t.integer "workshop_id"
-  end
-
-  add_index "clients_workshops", ["client_id"], name: "index_clients_workshops_on_client_id", using: :btree
-  add_index "clients_workshops", ["workshop_id"], name: "index_clients_workshops_on_workshop_id", using: :btree
-
   create_table "coaching_sessions", force: :cascade do |t|
     t.string   "user_id"
     t.integer  "workshop_id"
@@ -47,12 +32,20 @@ ActiveRecord::Schema.define(version: 20150713183457) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "groups", force: :cascade do |t|
-    t.string   "company"
+  create_table "participants", force: :cascade do |t|
     t.string   "name"
+    t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "participants_workshops", id: false, force: :cascade do |t|
+    t.integer "participant_id"
+    t.integer "workshop_id"
+  end
+
+  add_index "participants_workshops", ["participant_id"], name: "index_participants_workshops_on_participant_id", using: :btree
+  add_index "participants_workshops", ["workshop_id"], name: "index_participants_workshops_on_workshop_id", using: :btree
 
   create_table "phone_session_types", force: :cascade do |t|
     t.string   "name"
@@ -71,10 +64,18 @@ ActiveRecord::Schema.define(version: 20150713183457) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string   "company"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "name"
     t.boolean  "coach"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150713183457) do
     t.datetime "datetime"
     t.string   "location"
     t.integer  "workshop_type_id"
+    t.integer  "project_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
