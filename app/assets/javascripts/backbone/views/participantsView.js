@@ -1,11 +1,11 @@
 var app = app || {};
 app.Views = app.Views || {};
 
-app.Views.ParticipantListView = Backbone.View.extend({
+app.Views.ParticipantsView = Backbone.View.extend({
   el: '#app',
 
   render: function() {
-    var template = $('#participantListTemplate').html();
+    var template = $('#participantsTemplate').html();
     this.$el.html(template);
 
     var that = this;
