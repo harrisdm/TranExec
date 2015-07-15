@@ -14,8 +14,18 @@
       <li><a href="/admin/appointment_blocks">Phone Blocks</a></li>
       <li><a href="/admin/workshop_types">Workshop Types</a></li>
       <li><a href="/admin/phone_session_types">Phone Session Types</a></li>
+
+      <% if user_signed_in? %>
+        <%= button_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
+        <li><a href="<%= new_user_session_path %>">Sign In</a></li>
+      <% end %>
     </ul>
   </nav>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
   <div class="container">
     <%= yield %>

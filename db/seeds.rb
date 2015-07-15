@@ -17,9 +17,9 @@ wst1 = WorkshopType.create :name => 'Workshop 1'
 wst2 = WorkshopType.create :name => 'Workshop 2'
 wst3 = WorkshopType.create :name => 'Workshop 3'
 
-u1 = User.create :name => "Rich", :coach => false
-u2 = User.create :name => "Karen", :coach => true
-u3 = User.create :name => "Sarit", :coach => true
+# u1 = User.create :name => "Rich", :coach => false
+# u2 = User.create :name => "Karen", :coach => true
+# u3 = User.create :name => "Sarit", :coach => true
 
 p1 = Project.create :company => 'Aldi', :name => "Area Managers"
 p2 = Project.create :company => 'Aldi', :name => "Store Managers"
@@ -34,13 +34,13 @@ ws4 = Workshop.create :datetime => "2015-7-15 9:00:00", :location => "Melbourne"
 ws4 = Workshop.create :datetime => "2015-7-16 9:00:00", :location => "Melbourne", :workshop_type_id => 1, :project_id => 3
 ws5 = Workshop.create :datetime => "2015-8-2 9:00:00", :location => "Melbourne", :workshop_type_id => 2, :project_id => 3
 
-a1 = Appointment.create :datetime => '2015-07-14 2:30'
+a1 = Appointment.create :datetime => '2015-07-16 2:30'
 a2 = Appointment.create :datetime => '2015-07-14 3:30'
-a3 = Appointment.create :datetime => '2015-07-14 4:30'
+a3 = Appointment.create :datetime => '2015-07-15 4:30'
 
 ab1 = AppointmentBlock.create :name => 'Test', :code => 'ABC123', :active => true, :phone_session_type_id => 1
 ab1.appointments << a1 << a2 << a3
-ws1.update :appointment_block_id => 1
+ws1.update :appointment_block_id => ab1.id
 
 ab2 = AppointmentBlock.create :name => 'Test Session', :code => 'ABC456', :active => true, :phone_session_type_id => 2
 

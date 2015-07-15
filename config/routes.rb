@@ -72,19 +72,8 @@
 #
 
 Rails.application.routes.draw do
-  get 'appointments/index'
 
-  get 'appointments/show'
-
-  get 'appointments/new'
-
-  get 'appointments/create'
-
-  get 'appointments/edit'
-
-  get 'appointments/update'
-
-  get 'appointments/destroy'
+  devise_for :users
 
   root :to => 'pages#home'
   get '/secure' => 'pages#secure'
@@ -119,7 +108,7 @@ Rails.application.routes.draw do
   get '/xls_demo' => 'pages#xls_demo'
 
   post '/bookings' => 'backbone#index'
-  get '/bookings' => 'pages#backbone', :as => 'backbone'
+  # get '/bookings' => 'pages#backbone', :as => 'backbone'
   scope :backbone do
     get '/:code/participants' => 'backbone#participants'
     get '/:code/appointments' => 'backbone#appointments'

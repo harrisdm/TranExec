@@ -13,7 +13,10 @@
 #
 
 class User < ActiveRecord::Base
-  # has_and_belongs_to_many :workshops
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
   has_many :coaching_sessions
   has_many :workshops, :through => :coaching_sessions
