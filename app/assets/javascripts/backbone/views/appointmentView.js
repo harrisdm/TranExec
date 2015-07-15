@@ -26,7 +26,7 @@ app.Views.AppointmentView = Backbone.View.extend({
     data.datetime_nice = day.format('MMMM Do YYYY, h:mm:ss a');
 
     var view = this.$el.append( viewHTML(data) );
-    parentView.append(view);
+    parentView.find('#appointmentList').append(view);
   },
 
   bookAppointment: function() {

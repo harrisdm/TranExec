@@ -12,7 +12,7 @@
   {[ if (participants === 0) { ]}
     <h1 class="text-center">COMPLETE!</h1>
   {[ } else { ]}
-    <div id="clientList" class="list-group"></div>
+    <div id="participantList" class="list-group"></div>
   {[ } ]}
 </script>
 
@@ -21,7 +21,8 @@
 </script>
 
 <script id="appointmentsTemplate" type="text/template">
-  This is the appointments template
+  <button class="btn btn-success">I'm Finished</button>
+  <div id="appointmentList" class="list-group"></div>
 </script>
 
 <script id="appointmentTemplate" type="text/template">

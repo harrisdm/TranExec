@@ -14,7 +14,7 @@ app.Views.ParticipantView = Backbone.View.extend({
     var viewHTML = _.template(viewTemplate);
 
     var view = this.$el.append( viewHTML(this.model.toJSON()) );
-    parentView.append(view);
+    parentView.find('#participantList').append(view);
   },
 
   showAppointments: function() {
