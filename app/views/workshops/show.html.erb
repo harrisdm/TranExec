@@ -20,6 +20,13 @@
   <%= "#{@workshop.project.company}, #{@workshop.project.name}" %>
 </p>
 
+<p>
+  <strong>Appointment Block:</strong>
+  <% unless @workshop.appointment_block.nil? %>
+    <%= @workshop.appointment_block.name %>
+  <% end %>
+</p>
+
 <% unless @workshop.coaching_sessions.empty? %>
 <p>
   <strong>Coaches:</strong>

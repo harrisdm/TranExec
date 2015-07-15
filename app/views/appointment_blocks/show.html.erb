@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Workshop:</strong>
-  <%= @appointment_block.workshop_id %>
+  <strong>Name:</strong>
+  <%= @appointment_block.name %>
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @appointment_block.password_digest %>
+  <strong>Phone Session Type:</strong>
+  <%= @appointment_block.phone_session_type.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @appointment_block.code %>
 </p>
 
 <p>
@@ -17,3 +22,38 @@
 
 <%= link_to 'Edit', edit_appointment_block_path(@appointment_block) %> |
 <%= link_to 'Back', appointment_blocks_path %>
+
+
+<%= form_tag(appointment_block_appointments_path(@appointment_block), :method=>'post') do %>
+  <div class="dynamic-fields">
+
+
+    <div class="form-group fields">
+  <%= label_tag :date, "" %>
+  <%= date_field_tag "appointment[date]", "", :class => "form-control" %>
+  <div class="form-group">
+    <%# (9..17).each do |i| %>
+      <%= label_tag :time %>
+      <%= check_box_tag "appointment[time]", false %>
+    <%# end %>
+  </div>
+  <%= hidden_field_tag "participant[appointment_block]", @appointment_block.id, :class => "form-control" %>
+  <%# link_to_remove_fields "remove", f %>
+</div>
+  </div>
+  <p>
+    <%# link_to_add_fields "Add Participant", f, :participants %>
+  </p>
+
+
+  </div>
+  <div class="actions">
+    <%= submit_tag "Add Participant", class: "btn btn-large btn-primary" %>
+  </div>  
+<% end %>
+
+
+
+
+
+

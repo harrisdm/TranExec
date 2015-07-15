@@ -38,9 +38,9 @@ a1 = Appointment.create :datetime => '2015-07-14 2:30'
 a2 = Appointment.create :datetime => '2015-07-14 3:30'
 a3 = Appointment.create :datetime => '2015-07-14 4:30'
 
-ab1 = AppointmentBlock.create :code => 'ABC123', :active => true
+ab1 = AppointmentBlock.create :name => 'Test', :code => 'ABC123', :active => true, :phone_session_type_id => 1
 ab1.appointments << a1 << a2 << a3
-ab1.update :workshop_id => ws1.id
+ws1.update :appointment_block_id => 1
 
 ab2 = AppointmentBlock.create :code => 'ABC456', :active => true
 
