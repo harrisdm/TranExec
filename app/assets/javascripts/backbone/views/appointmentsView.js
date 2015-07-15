@@ -16,14 +16,35 @@ app.Views.AppointmentsView = Backbone.View.extend({
     var viewTemplate = $('#appointmentsTemplate').html();
     this.$el.html(viewTemplate);
 
+    var uniqueDates = this.uniqueDates();
+
     var that = this;
-    this.collection.each(function(appointment) {
-      var appointmentView = new app.Views.AppointmentView({ model: appointment });
-      appointmentView.render(that.$el);
+    _(uniqueDates).each(function(date) {
+      var appointments = that.appointmentsWithDate(date);
+      var appointmentGroupView = new app.Views.AppointmentGroupView({ collection: appointments });
+      appointmentGroupView.render(that.$el);
     });
   },
 
   showParticipants: function() {
     app.router.navigate('', true);
+  },
+
+  uniqueDates: function() {
+    var dates = this.collection.map(function(appointment) {
+      var datetime = appointment.get('datetime');
+      var day = moment(datetime);
+      return day.format('YYYY-MM-DD');
+    });
+
+    return _(dates).uniq();
+  },
+
+  appointmentsWithDate: function(date) {
+    return this.collection.filter(function(appointment) {
+      var datetime = appointment.get('datetime');
+      var idx = datetime.indexOf(date);
+      return idx === 0;
+    });
   }
 });
