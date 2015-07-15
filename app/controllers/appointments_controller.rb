@@ -27,6 +27,7 @@ class AppointmentsController < ApplicationController
 
   private
     def appointment_params
+      # :time is declared diffently from usual to allow an array of values
       params.require(:appointment).permit(:date, {:time => []}, :appointment_block_id)
     end
 
