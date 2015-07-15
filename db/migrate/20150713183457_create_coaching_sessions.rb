@@ -6,5 +6,6 @@ class CreateCoachingSessions < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :coaching_sessions, [:user_id, :workshop_id], :unique => true
   end
 end

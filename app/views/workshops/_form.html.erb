@@ -1,5 +1,6 @@
 
-<%= form_for(@workshop) do |f| %>
+<%= form_for(@path) do |f| %>
+
   <% if @workshop.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
@@ -38,16 +39,18 @@
   </div>
 
 
-  <div class="form-group">
+  <div class="dynamic-fields">
     <%= f.fields_for :coaching_sessions do |builder| %>
-      <%= builder.label :user_id %>
-      <%= builder.select :user_id, User.where(:coach => true).map { |c| [c.name, c.id] }, {:include_blank => false}, {:class => 'form-control'} %>
+      <%= render "coaching_session_fields", :f => builder %>
     <% end %>
   </div>
+  <p>
+    <%= link_to_add_fields "Add Coach", f, :coaching_sessions %>
+  </p>
+  
 
   <div class="form-group">
-    <%# f.label :project_id %>
-    <%= f.hidden_field :project_id, :value => params[:project_id] %>
+    <%= f.hidden_field :project_id %>
   </div>
   <div class="actions">
     <%= f.submit :class => "btn btn-primary" %>

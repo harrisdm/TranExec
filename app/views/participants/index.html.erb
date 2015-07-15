@@ -2,7 +2,17 @@
 
 <h1>Listing Participants</h1>
 
-<table>
+<p>
+  <strong>Company:</strong>
+  <%= @participants.first.project.company %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @participants.first.project.name %>
+</p>
+
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Participant', new_participant_path %>
+<%# link_to 'New Participant', new_participant_path %>

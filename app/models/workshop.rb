@@ -12,6 +12,7 @@
 #
 
 class Workshop < ActiveRecord::Base
+
   has_and_belongs_to_many :participants
   # has_and_belongs_to_many :users
   belongs_to :workshop_type
@@ -20,5 +21,14 @@ class Workshop < ActiveRecord::Base
 
   has_many :coaching_sessions
   has_many :users, :through => :coaching_sessions
-  accepts_nested_attributes_for :coaching_sessions, :reject_if => lambda { |a| a[:user_id].blank? }
+  accepts_nested_attributes_for :coaching_sessions, 
+      :reject_if => lambda { |a| a[:user_id].blank? }, 
+      :allow_destroy => true
+
+
+  validates :location, presence: true
+  validates :location, length: { maximum: 200 }
+
+  validates :project_id, presence: true
+  
 end

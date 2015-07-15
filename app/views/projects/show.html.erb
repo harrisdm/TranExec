@@ -33,9 +33,9 @@
         <td><%= workshop.workshop_type.name %></td>
         <td><%= date_string(workshop.datetime) %></td>
         <td><%= workshop.location %></td>
-        <td><%= link_to 'Show', project_workshop_path(project_id: workshop.project_id, id: workshop.id ) %></td>
-        <td><%= link_to 'Edit', edit_project_workshop_path(project_id: workshop.project_id, id: workshop.id ) %></td>
-        <td><%= link_to 'Destroy', project_workshop_path(project_id: workshop.project_id, id: workshop.id ), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', workshop %></td>
+        <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
+        <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

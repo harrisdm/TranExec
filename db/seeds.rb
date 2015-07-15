@@ -9,9 +9,9 @@ Workshop.destroy_all
 pst1 = PhoneSessionType.create(:name => 'Phone Session 1')
 pst1 = PhoneSessionType.create(:name => 'Phone Session 2')
 
-pr1 = Participant.create :name => 'Toby'
-pr2 = Participant.create :name => 'Mark'
-pr3 = Participant.create :name => 'Jeff'
+pr1 = Participant.create :name => 'Toby', :project_id => 1
+pr2 = Participant.create :name => 'Mark', :project_id => 1
+pr3 = Participant.create :name => 'Jeff', :project_id => 1
 
 wst1 = WorkshopType.create :name => 'Workshop 1'
 wst2 = WorkshopType.create :name => 'Workshop 2'
@@ -43,3 +43,7 @@ ab1.appointments << a1 << a2 << a3
 ab1.update :workshop_id => ws1.id
 
 ab2 = AppointmentBlock.create :code => 'ABC456', :active => true
+
+
+
+

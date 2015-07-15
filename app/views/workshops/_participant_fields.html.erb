@@ -1,0 +1,7 @@
+
+<div class="form-group fields">
+  <%= label_tag :name, "" %>
+  <%= text_field_tag "participant[name]", "", :class => "form-control" %>
+  <%= hidden_field_tag "participant[project_id]", @workshop.project_id, :class => "form-control" %>
+  <%# link_to_remove_fields "remove", f %>
+</div>
