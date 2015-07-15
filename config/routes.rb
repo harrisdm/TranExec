@@ -80,11 +80,12 @@ Rails.application.routes.draw do
     resources :workshop_types
     resources :users
     resources :appointment_blocks, :shallow => true do
+      get 'export' => 'appointment_blocks#export'
       resources :appointments
     end
 
     # resources :workshops do
-    #   
+    #
     #   resources :phone_sessions
     # end
 
@@ -111,7 +112,7 @@ Rails.application.routes.draw do
     put '/:code/appointments/:id' => 'backbone#make_booking'
   end
 
-  
+
 
 end
 
