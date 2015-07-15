@@ -17,9 +17,9 @@ wst1 = WorkshopType.create :name => 'Workshop 1'
 wst2 = WorkshopType.create :name => 'Workshop 2'
 wst3 = WorkshopType.create :name => 'Workshop 3'
 
-u1 = User.create :name => "Rich", :coach => false
-u2 = User.create :name => "Karen", :coach => true
-u3 = User.create :name => "Sarit", :coach => true
+# u1 = User.create :name => "Rich", :coach => false
+# u2 = User.create :name => "Karen", :coach => true
+# u3 = User.create :name => "Sarit", :coach => true
 
 p1 = Project.create :company => 'Aldi', :name => "Area Managers"
 p2 = Project.create :company => 'Aldi', :name => "Store Managers"
