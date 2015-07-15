@@ -40,6 +40,6 @@ class BackboneController < ApplicationController
   end
 
   def appointment_params
-    params.require(:backbone).permit(:participant_id)
+    params.require(:backbone).permit(:participant_id, :phone, :email, :reminder)
   end
 end

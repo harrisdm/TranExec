@@ -5,7 +5,7 @@ app.Views.DetailsView = Backbone.View.extend({
   el: '#app',
 
   events: {
-    'click #appointmentsBtn': 'showAppointments'
+    'submit form': 'showAppointments'
   },
 
   render: function() {
@@ -14,7 +14,13 @@ app.Views.DetailsView = Backbone.View.extend({
     this.$el.html(viewHTML());
   },
 
-  showAppointments: function() {
+  showAppointments: function(e) {
+    e.preventDefault();
+
+    var $form = $(e.currentTarget);
+    app.Data.phone = $form.find('#phone').val();
+    app.Data.email = $form.find('#email').val();
+    app.Data.reminder = $form.find('[name="reminder"]:checked').val();
 
     app.router.navigate('appointments', true);
   }
