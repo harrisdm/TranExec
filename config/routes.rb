@@ -72,6 +72,20 @@
 #
 
 Rails.application.routes.draw do
+  get 'appointments/index'
+
+  get 'appointments/show'
+
+  get 'appointments/new'
+
+  get 'appointments/create'
+
+  get 'appointments/edit'
+
+  get 'appointments/update'
+
+  get 'appointments/destroy'
+
   root :to => 'pages#home'
   get '/secure' => 'pages#secure'
 

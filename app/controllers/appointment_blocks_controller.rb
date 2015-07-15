@@ -15,6 +15,7 @@ class AppointmentBlocksController < ApplicationController
   end
 
   def create
+    raise params.inspect
     @appointment_block = AppointmentBlock.new(appointment_block_params)
 
     if @appointment_block.save

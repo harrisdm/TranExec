@@ -32,12 +32,14 @@
   <%= label_tag :date, "" %>
   <%= date_field_tag "appointment[date]", "", :class => "form-control" %>
   <div class="form-group">
-    <%# (9..17).each do |i| %>
-      <%= label_tag :time %>
-      <%= check_box_tag "appointment[time]", false %>
-    <%# end %>
+    <% (9..17).each do |i| %>
+      <%= label_tag :time, "#{i}:00" %>
+      <%= check_box_tag "appointment[time][]", "#{i}:00" %>
+      <%= label_tag :time, "#{i}:30" %>
+      <%= check_box_tag "appointment[time][]", "#{i}:30" %>
+    <% end %>
   </div>
-  <%= hidden_field_tag "participant[appointment_block]", @appointment_block.id, :class => "form-control" %>
+  <%= hidden_field_tag "appointment[appointment_block_id]", @appointment_block.id, :class => "form-control" %>
   <%# link_to_remove_fields "remove", f %>
 </div>
   </div>
@@ -48,7 +50,7 @@
 
   </div>
   <div class="actions">
-    <%= submit_tag "Add Participant", class: "btn btn-large btn-primary" %>
+    <%= submit_tag "Add Appointments", class: "btn btn-large btn-primary" %>
   </div>  
 <% end %>
 
