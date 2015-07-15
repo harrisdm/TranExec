@@ -25,7 +25,7 @@ class BackboneController < ApplicationController
     appointment = Appointment.find params['id']
     appointment.update appointment_params
 
-    render text: 'booking successful'
+    render json: appointment
   end
 
   private

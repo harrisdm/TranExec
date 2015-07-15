@@ -9,7 +9,11 @@
 </script>
 
 <script id="participantsTemplate" type="text/template">
-  <div id="clientList" class="list-group"></div>
+  {[ if (participants === 0) { ]}
+    <h1 class="text-center">COMPLETE!</h1>
+  {[ } else { ]}
+    <div id="clientList" class="list-group"></div>
+  {[ } ]}
 </script>
 
 <script id="participantTemplate" type="text/template">

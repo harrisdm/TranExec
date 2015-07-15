@@ -23,8 +23,8 @@ app.Views.AppointmentView = Backbone.View.extend({
 
   bookAppointment: function() {
     this.model.set('participant_id', app.Data.participantID);
-    this.model.save();
-
-    app.WebSockets.channel.trigger('new_booking');
+    this.model.save().done(function() {
+      app.WebSockets.channel.trigger('new_booking');
+    });
   }
 });
