@@ -3,7 +3,15 @@ app.Views = app.Views || {};
 
 app.Views.AppointmentView = Backbone.View.extend({
   tagName: 'a',
-  className: "list-group-item",
+  className: function () {
+    var str = "list-group-item";
+
+    if (this.model.get("participant_id")) {
+      str += " disabled";
+    }
+
+    return str;
+  },
 
   events: {
     'click': 'bookAppointment'
@@ -22,6 +30,10 @@ app.Views.AppointmentView = Backbone.View.extend({
   },
 
   bookAppointment: function() {
+    if (this.model.get('participant_id')) {
+      return;
+    }
+
     this.model.set('participant_id', app.Data.participantID);
     this.model.save().done(function() {
       app.WebSockets.channel.trigger('new_booking');

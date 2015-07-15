@@ -16,7 +16,7 @@ class BackboneController < ApplicationController
 
   def appointments
     appointment_block = appointment_block_from_code
-    appointments = appointment_block.appointments.where :participant_id => nil
+    appointments = appointment_block.appointments.order(:datetime)
 
     render json: appointments
   end
