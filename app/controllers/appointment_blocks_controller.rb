@@ -50,8 +50,33 @@ class AppointmentBlocksController < ApplicationController
     redirect_to appointment_blocks_url, notice: 'Appointment block was successfully destroyed.'
   end
 
+  def export
+    appointment_block = AppointmentBlock.find params[:appointment_block_id]
+
+    appointment_block.appointments.each do |appointment|
+      if appointment.participant_id
+        PhoneSession.create({
+          :participant_id => appointment.participant_id,
+          :phone_session_type_id => 1,
+          :phone => appointment.phone,
+          :email => appointment.email,
+          :reminder => appointment.reminder,
+          :user_id => 0
+        })
+      end
+    end
+
+    appointment_block.destroy
+
+    render text: 'done'
+  end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_appointment_block
+      @appointment_block = AppointmentBlock.find(params[:id])
+    end
+
     def appointment_block_params
       params.require(:appointment_block).permit(:name, :code, :phone_session_type_id, :active)
     end

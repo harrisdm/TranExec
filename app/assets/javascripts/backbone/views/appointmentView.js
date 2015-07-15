@@ -3,7 +3,15 @@ app.Views = app.Views || {};
 
 app.Views.AppointmentView = Backbone.View.extend({
   tagName: 'a',
-  className: "list-group-item",
+  className: function () {
+    var str = "list-group-item";
+
+    if (this.model.get("participant_id")) {
+      str += " disabled";
+    }
+
+    return str;
+  },
 
   events: {
     'click': 'bookAppointment'
@@ -18,13 +26,17 @@ app.Views.AppointmentView = Backbone.View.extend({
     data.datetime_nice = day.format('MMMM Do YYYY, h:mm:ss a');
 
     var view = this.$el.append( viewHTML(data) );
-    parentView.append(view);
+    parentView.find('#appointmentList').append(view);
   },
 
   bookAppointment: function() {
-    this.model.set('participant_id', app.Data.participantID);
-    this.model.save();
+    if (this.model.get('participant_id')) {
+      return;
+    }
 
-    app.WebSockets.channel.trigger('new_booking');
+    this.model.set('participant_id', app.Data.participantID);
+    this.model.save().done(function() {
+      app.WebSockets.channel.trigger('new_booking');
+    });
   }
 });

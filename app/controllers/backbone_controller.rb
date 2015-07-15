@@ -11,12 +11,16 @@ class BackboneController < ApplicationController
 
   def participants
     appointment_block = appointment_block_from_code
-    render json: appointment_block.participants
+
+    already_booked = appointment_block.appointments.pluck(:participant_id)
+    participants = appointment_block.participants.where.not(id: already_booked)
+
+    render json: participants
   end
 
   def appointments
     appointment_block = appointment_block_from_code
-    appointments = appointment_block.appointments.where :participant_id => nil
+    appointments = appointment_block.appointments.order(:datetime)
 
     render json: appointments
   end
@@ -25,7 +29,7 @@ class BackboneController < ApplicationController
     appointment = Appointment.find params['id']
     appointment.update appointment_params
 
-    render text: 'booking successful'
+    render json: appointment
   end
 
   private
