@@ -5,7 +5,7 @@ app.Views.AppointmentsView = Backbone.View.extend({
   el: '#app',
 
   events: {
-    'click button': 'showParticipants'
+    'click #participantsBtn': 'showParticipants'
   },
 
   initialize: function() {
@@ -24,6 +24,7 @@ app.Views.AppointmentsView = Backbone.View.extend({
       var appointmentGroupView = new app.Views.AppointmentGroupView({ collection: appointments });
       appointmentGroupView.render(that.$el);
     });
+    console.log('rendering appointmentsView');
   },
 
   showParticipants: function() {
