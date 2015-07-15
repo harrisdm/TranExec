@@ -34,9 +34,9 @@ ws4 = Workshop.create :datetime => "2015-7-15 9:00:00", :location => "Melbourne"
 ws4 = Workshop.create :datetime => "2015-7-16 9:00:00", :location => "Melbourne", :workshop_type_id => 1, :project_id => 3
 ws5 = Workshop.create :datetime => "2015-8-2 9:00:00", :location => "Melbourne", :workshop_type_id => 2, :project_id => 3
 
-a1 = Appointment.create :datetime => '2015-07-14 2:30'
+a1 = Appointment.create :datetime => '2015-07-16 2:30'
 a2 = Appointment.create :datetime => '2015-07-14 3:30'
-a3 = Appointment.create :datetime => '2015-07-14 4:30'
+a3 = Appointment.create :datetime => '2015-07-15 4:30'
 
 ab1 = AppointmentBlock.create :name => 'Test', :code => 'ABC123', :active => true, :phone_session_type_id => 1
 ab1.appointments << a1 << a2 << a3

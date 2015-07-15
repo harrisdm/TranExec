@@ -41,10 +41,12 @@ app.Views.AppointmentsView = Backbone.View.extend({
   },
 
   appointmentsWithDate: function(date) {
-    return this.collection.filter(function(appointment) {
+    var models = this.collection.filter(function(appointment) {
       var datetime = appointment.get('datetime');
       var idx = datetime.indexOf(date);
       return idx === 0;
     });
+
+    return new app.Collections.Appointments(models);
   }
 });
