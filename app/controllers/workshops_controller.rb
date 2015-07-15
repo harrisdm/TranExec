@@ -62,6 +62,6 @@ class WorkshopsController < ApplicationController
 
   private
     def workshop_params
-      params.require(:workshop).permit(:datetime, :location, :workshop_type_id, :project_id, [coaching_sessions_attributes: [:id, :user_id, :_destroy]])
+      params.require(:workshop).permit(:datetime, :location, :workshop_type_id, :project_id, :appointment_block_id [coaching_sessions_attributes: [:id, :user_id, :_destroy]])
     end
 end

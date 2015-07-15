@@ -5,6 +5,7 @@ class CreateWorkshops < ActiveRecord::Migration
       t.string :location
       t.integer :workshop_type_id
       t.integer :project_id
+      t.integer :appointment_block_id
 
       t.timestamps null: false
     end

@@ -16,7 +16,7 @@
     <% @appointment_blocks.each do |appointment_block| %>
       <tr>
         <td><%= appointment_block.workshop_id %></td>
-        <td><%= appointment_block.password_digest %></td>
+        <td><%# appointment_block.password_digest %></td>
         <td><%= appointment_block.active %></td>
         <td><%= link_to 'Show', appointment_block %></td>
         <td><%= link_to 'Edit', edit_appointment_block_path(appointment_block) %></td>

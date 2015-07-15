@@ -95,10 +95,11 @@ Rails.application.routes.draw do
     resources :phone_session_types
     resources :workshop_types
     resources :users
-
+    resources :appointment_blocks
+    get '/appointment_blocks'=> 'appointment_blocks#index'
 
     # resources :workshops do
-    #   resource :appointment_blocks
+    #   
     #   resources :phone_sessions
     # end
 

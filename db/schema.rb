@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20150714045514) do
   enable_extension "plpgsql"
 
   create_table "appointment_blocks", force: :cascade do |t|
-    t.integer  "workshop_id"
-    t.boolean  "active"
+    t.string   "name"
     t.integer  "phone_session_type_id"
+    t.boolean  "active"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.string   "code"
@@ -113,8 +113,9 @@ ActiveRecord::Schema.define(version: 20150714045514) do
     t.string   "location"
     t.integer  "workshop_type_id"
     t.integer  "project_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "appointment_block_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
 end
