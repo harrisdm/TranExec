@@ -65,6 +65,23 @@ class AppointmentBlocksController < ApplicationController
     end
   end
 
+  def export
+    appointment_block = AppointmentBlock.find params[:id]
+    appointment_block.appointments.each do |appointment|
+      if appointment.participant_id
+        binding.pry
+        PhoneSession.create({
+          :participant_id => appointment.participant_id,
+          :phone_session_type_id => 1,
+          :phone => appointment.phone,
+          :email => appointment.email,
+          :reminder => appointment.reminder
+          :user_id => 0
+        })
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_appointment_block
