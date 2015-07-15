@@ -5,6 +5,7 @@ class BackboneController < ApplicationController
     if @appointment_block
       render 'pages/backbone'
     else
+      flash[:alert] = 'Incorrect access code'
       redirect_to root_path
     end
   end
@@ -35,7 +36,7 @@ class BackboneController < ApplicationController
   private
   def appointment_block_from_code
     code = params['code']
-    AppointmentBlock.find_by :active => true, :code => code
+    AppointmentBlock.find_by :active => true, :code => code.upcase
   end
 
   def appointment_params

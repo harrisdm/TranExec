@@ -4,6 +4,10 @@ app.Views = app.Views || {};
 app.Views.ParticipantsView = Backbone.View.extend({
   el: '#app',
 
+  events: {
+    'click #homeBtn': 'showHomePage'
+  },
+
   render: function() {
     var viewTemplate = $('#participantsTemplate').html();
     var viewHTML = _.template(viewTemplate);
@@ -14,6 +18,9 @@ app.Views.ParticipantsView = Backbone.View.extend({
       var participantView = new app.Views.ParticipantView({ model: participant });
       participantView.render(that.$el);
     });
+  },
 
+  showHomePage: function() {
+    window.location.href = window.location.origin;
   }
 });
