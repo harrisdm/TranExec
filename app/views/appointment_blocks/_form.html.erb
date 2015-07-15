@@ -11,15 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :workshop_id %><br>
-    <%= f.number_field :workshop_id %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :active %><br>
+
+  <div class="form-group">
+    <%= f.label :phone_session_type_id %>
+    <%# f.text_field :phone_session_type_id %>
+    <%= f.select :phone_session_type_id, @session_types.map { |s| [s.name, s.id] }, {:include_blank => false}, {:class => 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :code %>
+    <%= f.text_field :code, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :active %>
     <%= f.check_box :active %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

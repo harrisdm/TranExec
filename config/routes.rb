@@ -72,6 +72,29 @@
 #
 
 Rails.application.routes.draw do
+  root :to => 'pages#home'
+  get '/secure' => 'pages#secure'
+
+  scope :admin do
+    resources :phone_session_types
+    resources :workshop_types
+    resources :users
+    resources :appointment_blocks, :shallow => true do
+      resources :appointments
+    end
+
+    # resources :workshops do
+    #   
+    #   resources :phone_sessions
+    # end
+
+    resources :projects, :shallow => true do
+      resources :workshops, :shallow => true do
+        resources :participants
+      end
+    end
+  end
+
   get 'backbone/clients'
 
   resources :coaching_sessions
@@ -88,27 +111,8 @@ Rails.application.routes.draw do
     put '/:code/appointments/:id' => 'backbone#make_booking'
   end
 
-  root :to => 'pages#home'
-  get '/secure' => 'pages#secure'
+  
 
-  scope :admin do
-    resources :phone_session_types
-    resources :workshop_types
-    resources :users
-    resources :appointment_blocks
-    get '/appointment_blocks'=> 'appointment_blocks#index'
-
-    # resources :workshops do
-    #   
-    #   resources :phone_sessions
-    # end
-
-    resources :projects, :shallow => true do
-      resources :workshops, :shallow => true do
-        resources :participants
-      end
-    end
-  end
 end
 
 
