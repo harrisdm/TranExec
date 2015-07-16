@@ -14,9 +14,13 @@
     <% @workshop_types.each do |workshop_type| %>
       <tr>
         <td><%= workshop_type.name %></td>
-        <td><%= link_to 'Show', workshop_type %></td>
-        <td><%= link_to 'Edit', edit_workshop_type_path(workshop_type) %></td>
-        <td><%= link_to 'Destroy', workshop_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="table-actions">
+          <div class="btn-group" role="group">
+            <%= link_to 'Show', workshop_type, :class => "btn btn-default" %>
+            <%= link_to 'Edit', edit_workshop_type_path(workshop_type), :class => "btn btn-default" %>
+            <%= link_to 'Delete', workshop_type, :class => "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>

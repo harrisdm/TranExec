@@ -18,9 +18,16 @@
         <td><%= appointment_block.name %></td>
         <td><%= appointment_block.phone_session_type.name %></td>
         <td><%= appointment_block.active %></td>
-        <td><%= link_to 'Show', appointment_block %></td>
-        <td><%= link_to 'Edit', edit_appointment_block_path(appointment_block) %></td>
-        <td><%= link_to 'Destroy', appointment_block, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+        <td class="table-actions">
+          <div class="btn-group" role="group">
+            <%= link_to 'Show', appointment_block, :class => "btn btn-default" %>
+            <%= link_to 'Edit', edit_appointment_block_path(appointment_block), :class => "btn btn-default" %>
+            <%= link_to 'Delete', appointment_block, :class => "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
+
       </tr>
     <% end %>
   </tbody>
