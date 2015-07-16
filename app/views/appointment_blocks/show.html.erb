@@ -48,7 +48,7 @@
 
   </div>
   <div class="actions">
-    <%= submit_tag "Add Appointments", class: "btn btn-large btn-primary" %>
+    <%= submit_tag "Add Appointments", class: "btn btn-large btn-native" %>
   </div>
 <% end %>
 
@@ -67,13 +67,14 @@
 <% @appointments.each do |appointment| %>
 <% if date_string(appointment.datetime) != date %>
 <% date = date_string(appointment.datetime) %>
-  <tr><td colspan="4"><%= date %></td></tr>
+  <tr><td colspan="4"><b><%= date %></b></td></tr>
 <!--   <thead> -->
   <tr>
     <!-- <th>Date</th> -->
     <th>Time</th>
     <th>Participant</th>
     <th>Phone</th>
+    <th>Email</th>
     <th>Reminder</th>
   </tr>
  <!--  </thead> -->
@@ -86,12 +87,12 @@
         <% end %>
     </td>
     <td><%= appointment.phone %></td>
+    <td><%= appointment.email %></td>
     <td><%= appointment.reminder %></td>
   </tr>
 <% end %>
   </tbody>
 </table>
-<%= link_to "Export Calendar File", appointment_block_calendar_export_path(@appointment_block) %>
+<%= link_to "Export Calendar File", appointment_block_calendar_export_path(@appointment_block), :class => 'btn btn-native' %>
 
-<br><br><br><br><br>
 
