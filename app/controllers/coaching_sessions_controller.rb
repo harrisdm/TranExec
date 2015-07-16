@@ -1,5 +1,6 @@
 class CoachingSessionsController < ApplicationController
   before_action :set_coaching_session, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user
 
   # GET /coaching_sessions
   # GET /coaching_sessions.json

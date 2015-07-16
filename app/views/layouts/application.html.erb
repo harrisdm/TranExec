@@ -9,16 +9,21 @@
 <body>
 
 <header>
-  <nav>
-    <ul>
-      <li><a href="/admin/projects">Projects</a></li>
-      <li><a href="/admin/appointment_blocks">Appointment Blocks</a></li>
-      <li><a href="/admin/workshop_types">Workshop Types</a></li>
-      <li><a href="/admin/phone_session_types">Phone Session Types</a></li>
+  <%if @current_user.present? %>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a href="/admin/projects">Users</a></li>
+          <li><a href="/admin/projects">Projects</a></li>
+          <li><a href="/admin/appointment_blocks">Phone Blocks</a></li>
+          <li><a href="/admin/workshop_types">Workshop Types</a></li>
+          <li><a href="/admin/phone_session_types">Phone Session Types</a></li>
+        </ul>
 
-      
-    </ul>
-  </nav>
+        <%= button_to 'Sign Out', logout_path, :method => :delete, :form_class => 'navbar-form navbar-right', :class => 'btn btn-danger' %>
+      </div>
+    </nav>
+  <% end %>
 </header>
 
   <p class="notice"><%= notice %></p>

@@ -1,4 +1,5 @@
 class ParticipantsController < ApplicationController
+  before_action :authorize_user
 
   def index
     @participants = Participant.all

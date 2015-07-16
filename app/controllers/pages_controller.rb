@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def xls_demo
   end
+
+  def sign_in
+  end
 end

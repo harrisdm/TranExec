@@ -72,11 +72,13 @@
 #
 
 Rails.application.routes.draw do
-
-  # devise_for :users
-
   root :to => 'pages#home'
   get '/secure' => 'pages#secure'
+
+  # Sessions
+  get '/admin' => 'session#new'
+  post 'login' => 'session#create'
+  delete 'logout' => 'session#destroy'
 
   scope :admin do
     resources :phone_session_types
@@ -88,7 +90,7 @@ Rails.application.routes.draw do
     end
 
     resources :phone_sessions
-    
+
     resources :projects, :shallow => true do
       resources :workshops, :shallow => true do
         resources :participants
@@ -99,13 +101,10 @@ Rails.application.routes.draw do
   get 'backbone/clients'
 
   resources :coaching_sessions
-  get 'pages/landing'
-  get 'pages/home'
 
   get '/xls_demo' => 'pages#xls_demo'
 
   post '/bookings' => 'backbone#index'
-  # get '/bookings' => 'pages#backbone', :as => 'backbone'
   scope :backbone do
     get '/:code/participants' => 'backbone#participants'
     get '/:code/appointments' => 'backbone#appointments'
