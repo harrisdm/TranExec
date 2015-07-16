@@ -49,7 +49,7 @@
   </div>
   <div class="actions">
     <%= submit_tag "Add Appointments", class: "btn btn-large btn-primary" %>
-  </div>  
+  </div>
 <% end %>
 
 <table class="table">
@@ -63,7 +63,7 @@
   </tr>
   </thead> -->
   <tbody>
-<% date = date_string(Time.now) %>
+<% date = date_string(Time.now - 1.year) %>
 <% @appointments.each do |appointment| %>
 <% if date_string(appointment.datetime) != date %>
 <% date = date_string(appointment.datetime) %>
