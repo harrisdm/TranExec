@@ -16,43 +16,47 @@
  */
 
 
+
+
 .notice {
   display: hidden;
-} 
-.alert {
+}.alert {
   display: hidden; !important
 }
 
-body {
-  background-color: #aaa
-}
-
-.container {
-  background-color: #fafafa;
-  min-height: 90vh;
-  border: 1px solid #c3c3c3;
-}
-
-.field_with_errors { width: 100%; }
-.text-uppercase { text-transform: uppercase; }
-
 
 /*********************
-  Header
+  Layout
 *********************/
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100px;
-  background-color: rgb(67,67,67);
-}
 
-.content {
-  margin-top: 100px;
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #333;
 }
-
+header,
+footer {
+    min-height: 50px;
+    background: #333;
+}
+.content-wrapper {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+}
+.sidebar {
+  width: 200px;
+  border-right: 3px solid orange;
+  background-color: #fafafa
+}
+main {
+  flex-grow: 1;
+  padding: 15px;
+  background-color: #fafafa;
+}
 
 
 /*********************
@@ -62,7 +66,10 @@ header {
   background-color: #333;
   margin: 0;
   padding: 5px 0 5px 15px;
-  ---text-align: center;
+}
+
+ul.labels-info {
+  margin-bottom: 1em;
 }
 ul.labels-info li h4 {
   color: rgb(249,125,0);
@@ -93,20 +100,10 @@ ul.labels-info li a i {
     padding: 0 22px;
 }
 .inbox-divider {
-    border-bottom: 1px solid #d5d8df;
-}
-.nav h4 {
-
+    ---border-bottom: 1px solid #d5d8df;
 }
 
 
-
-/*********************
-  Tables
-*********************/
-.table-actions {
-  width: 220px;
-}
 
 
 
