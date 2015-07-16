@@ -46,7 +46,6 @@
 </script>
 
 <script id="appointmentsTemplate" type="text/template">
-  <button class="btn btn-success">I'm Finished</button>
 </script>
 
 <script id="appointmentGroupTemplate" type="text/template">
@@ -57,4 +56,8 @@
 
 <script id="appointmentTemplate" type="text/template">
   {{ datetime_nice }}
+
+  {[ if (participant_id === app.Data.participantID) { ]}
+    <span class="label label-success">Booked</span>
+  {[ } ]}
 </script>
