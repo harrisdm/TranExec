@@ -38,7 +38,14 @@
 
 <% end %>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %> |
-<%= link_to 'Add a Workshop',  new_project_workshop_path(@project) %>
+<div class="row">
+  <div class="col-xs-6 text-left">
+    <%= link_to 'Add a Workshop',  new_project_workshop_path(@project), :class => "btn btn-native" %>
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to 'Edit Project', edit_project_path(@project) %> |
+    <%= link_to 'Projects List', projects_path %>
+  </div>
+</div>
+
 
