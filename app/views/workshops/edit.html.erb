@@ -1,16 +1,11 @@
-<h1>Editing Workshop</h1>
 
-<p>
-  <strong>Company:</strong>
-  <%= @project.company %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<h2 class="page-title">Edit a Workshop</h2>
+<h3><%= @project.company %> - <%= @project.name %></h3>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @workshop %> |
-<%= link_to 'Back', project_path(@workshop.project_id) %>
+<div class="row">
+  <div class="col-xs-12 text-right">
+    <%= link_to 'Back to Workshop', workshop_path(@workshop) %>
+  </div>
+</div>

@@ -34,6 +34,8 @@ body, ul {
 .page-title {
   padding-bottom: 20px;
 }
+.field_with_errors { width: 100%; }
+.text-uppercase { text-transform: uppercase; }
 .btn-native, .form-control {
   border-radius: 0;
   margin-bottom: 5px;
@@ -89,6 +91,14 @@ main {
   background-color: #fafafa;
   overflow: scroll;
 }
+.sub-right {
+  padding-left: 10px;
+  border-left: 1px solid grey;
+}
+.sub-left, .sub-right {
+  padding: 10px;
+  padding-bottom: 20px;
+}
 
 
 /*********************
@@ -141,6 +151,7 @@ ul.labels-info li a i {
 .table-actions {
   width: 220px;
 }
+th { font-weight: bold; }
 
 
 

@@ -1,82 +1,98 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= date_string(@workshop.datetime) %>
-</p>
+<h2 class="page-title"><%= "#{@workshop.project.company} - #{@workshop.project.name}" %></h2>
 
-<p>
-  <strong>Location:</strong>
-  <%= @workshop.location %>
-</p>
 
-<p>
-  <strong>Workshop type:</strong>
-  <%= @workshop.workshop_type.name %>
-</p>
-
-<p>
-  <strong>Project:</strong>
-  <%= "#{@workshop.project.company}, #{@workshop.project.name}" %>
-</p>
-
-<p>
-  <strong>Appointment Block:</strong>
-  <% unless @workshop.appointment_block.nil? %>
-    <%= @workshop.appointment_block.name %>
-  <% end %>
-</p>
-
-<% unless @workshop.coaching_sessions.empty? %>
-<p>
-  <strong>Coaches:</strong>
-  <ul>
-    <% for coaching_session in @workshop.coaching_sessions %>
-      <li><%= coaching_session.user.name %></li>
+<div class="row">
+  <div class="col-md-6 sub-left">
+    <h4><%= @workshop.workshop_type.name %></h4>
+    <h4><%= @workshop.location %></h4>
+    <h4><%= date_string(@workshop.datetime) %></h4>
+    <p>
+      <strong>Appointments:</strong>
+      <% if @workshop.appointment_block.nil? %>
+        <%= link_to "Assign Appointments", edit_workshop_path(@workshop) %>
+      <% else %>
+        <%= @workshop.appointment_block.name %>
+      <% end %>
+    </p>
+    <br>
+    <% unless @workshop.coaching_sessions.empty? %>
+    <div class="row">
+    <div class="col-lg-8 col-md-6 col-sm-6">
+    <table class="table">
+      <% label = "Coaches:" %>
+      <% for coaching_session in @workshop.coaching_sessions %>
+        <tr>
+          <td><strong><%= label %></strong></td>
+          <td><%= coaching_session.user.name %></td>
+        </tr>
+        <% label = "" %>
+      <% end %>
+    </table>
+    </div>
+    </div>
     <% end %>
-  </ul>
-</p>
-<% end %>
 
-<% unless @workshop.participants.empty? %>
-<p>
-  <strong>Participants:</strong>
-  <ul>
-    <% @workshop.participants.each do |participant| %>
-      <li><%= participant.name %></li>
-    <% end %>
-  </ul>
-</p>
-<% end %>
-
-<%= form_tag(workshop_participants_path(@workshop), :method=>'post') do %>
-  <div class="dynamic-fields">
-    <%= render "participant_fields" %>
+    <div class="row">
+      <div class="col-xs-6 text-left">
+        <%= link_to 'Edit Workshop',  edit_workshop_path(@workshop), :class => "btn btn-native" %>
+      </div>
+      <div class="col-xs-6 text-right">
+        <%# link_to 'Back to Workshop List', project_path(@workshop.project_id) %>
+      </div>
+    </div>
   </div>
-  <p>
-    <%# link_to_add_fields "Add Participant", f, :participants %>
-  </p>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Add Participant", class: "btn btn-large btn-primary" %>
-  </div>  
-<% end %>
-
-<%= link_to 'Edit', edit_workshop_path(@workshop) %> |
-<%= link_to 'Back', project_path(@workshop.project_id) %>
+  <div class="col-md-6 sub-right">
 
 
-
-<% unless @participants.empty? %>
-<p>
-  <strong>Project Participants:</strong>
-  <ul>
-    <% @participants.each do |participant| %>
-      <li><%= participant.name %></li>
+    <% unless @workshop.participants.empty? %>
+    <p><strong>Participants:</strong></p>
+      <ul>
+        <% @workshop.participants.each do |participant| %>
+          <li><%= participant.name %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-</p>
-<% end %>
+
+    <%= form_tag(workshop_participants_path(@workshop), :method=>'post') do %>
+      <div class="dynamic-fields">
+        <%= render "participant_fields" %>
+      </div>
+      <p>
+        <%# link_to_add_fields "Add Participant", f, :participants %>
+      </p>
+      <div class="actions">
+        <%= submit_tag "Add Participant", class: "btn btn-large btn-primary" %>
+      </div>  
+    <% end %>
+
+    <% unless @participants.empty? %>
+    <p><strong>Project Participants:</strong></p>
+    <ul>
+      <% @participants.each do |participant| %>
+        <li><%= participant.name %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+  </div>
+
+    <div class="col-xs-12 text-right">
+      <%= link_to 'Back to Workshop List', project_path(@workshop.project_id) %>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 

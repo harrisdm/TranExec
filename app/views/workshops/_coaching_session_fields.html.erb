@@ -2,5 +2,6 @@
 <div class="form-groups fields">
   <%= f.label :user_id, "Coach" %>
   <%= f.select :user_id, User.where(:coach => true).map { |c| [c.name, c.id] }, {:include_blank => true}, {:class => 'form-control'} %>
-  <%= link_to_remove_fields "remove", f %>
+  <p class="text-right"><%= link_to_remove_fields "Remove", f %></p>
+  
 </div>

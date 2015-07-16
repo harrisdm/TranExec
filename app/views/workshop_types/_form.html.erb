@@ -1,21 +1,24 @@
-<%= form_for(@workshop_type) do |f| %>
-  <% if @workshop_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@workshop_type.errors.count, "error") %> prohibited this workshop_type from being saved:</h2>
 
-      <ul>
-      <% @workshop_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+  <%= form_for(@workshop_type) do |f| %>
+    <% if @workshop_type.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@workshop_type.errors.count, "error") %> prohibited this workshop_type from being saved:</h2>
+
+        <ul>
+        <% @workshop_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit :class => "btn btn-primary" %>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => "form-control" %>
-  </div>
-  <div class="actions">
-    <%= f.submit :class => "btn btn-primary" %>
-  </div>
-<% end %>
+</div>
