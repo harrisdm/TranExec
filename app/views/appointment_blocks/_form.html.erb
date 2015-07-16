@@ -1,37 +1,39 @@
-<%= form_for(@appointment_block) do |f| %>
-  <% if @appointment_block.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@appointment_block.errors.count, "error") %> prohibited this appointment_block from being saved:</h2>
+<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+  <%= form_for(@appointment_block) do |f| %>
+    <% if @appointment_block.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@appointment_block.errors.count, "error") %> prohibited this appointment_block from being saved:</h2>
 
-      <ul>
-      <% @appointment_block.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @appointment_block.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phone_session_type_id %>
+      <%# f.text_field :phone_session_type_id %>
+      <%= f.select :phone_session_type_id, @session_types.map { |s| [s.name, s.id] }, {:include_blank => false}, {:class => 'form-control'} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :code %>
+      <%= f.text_field :code, :class => "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :active %>
+      <%= f.check_box :active %>
+    </div>
+    <div class="actions">
+      <%= f.submit :class => "btn btn-primary" %>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :phone_session_type_id %>
-    <%# f.text_field :phone_session_type_id %>
-    <%= f.select :phone_session_type_id, @session_types.map { |s| [s.name, s.id] }, {:include_blank => false}, {:class => 'form-control'} %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :code %>
-    <%= f.text_field :code, :class => "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-  </div>
-  <div class="actions">
-    <%= f.submit :class => "btn btn-primary" %>
-  </div>
-<% end %>
+</div>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Appointment Blocks</h1>
+<h1 class="page-title">Appointment Blocks</h1>
 
 <table class="table">
   <thead>
@@ -8,7 +8,7 @@
       <th>Name</th>
       <th>Phone Session Type</th>
       <th>Active</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -17,8 +17,7 @@
       <tr>
         <td><%= appointment_block.name %></td>
         <td><%= appointment_block.phone_session_type.name %></td>
-        <td><%= appointment_block.active %></td>
-
+        <td><%= (appointment_block.active) ? "Yes" : "No" %></td>
 
         <td class="table-actions">
           <div class="btn-group" role="group">
@@ -35,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Appointment block', new_appointment_block_path, :class => 'btn btn-native' %>
+<%= link_to 'Create an Appointment block', new_appointment_block_path, :class => 'btn btn-native' %>

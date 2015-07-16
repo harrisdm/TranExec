@@ -70,6 +70,7 @@ body {
 header {
   padding: 10px 20px;
   border-bottom: 10px solid #333;
+  min-height: 70px;
 }
 footer {
     min-height: 30px;
@@ -106,6 +107,7 @@ main {
 *********************/
 .highlight {
   background-color: #333;
+  color: rgb(249,125,0);
   margin: 0;
   padding: 5px 0 5px 15px;
 }
@@ -114,7 +116,6 @@ ul.labels-info {
   margin-bottom: 1em;
 }
 ul.labels-info li h4 {
-  color: rgb(249,125,0);
   font-size: 13px;
   --padding: 5px 15px;
   text-transform: uppercase;

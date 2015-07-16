@@ -1,98 +1,87 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @appointment_block.name %>
-</p>
-
-<p>
-  <strong>Phone Session Type:</strong>
-  <%= @appointment_block.phone_session_type.name %>
-</p>
-
-<p>
-  <strong>Code:</strong>
-  <%= @appointment_block.code %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @appointment_block.active %>
-</p>
-
-<%= link_to 'Edit', edit_appointment_block_path(@appointment_block) %> |
-<%= link_to 'Back', appointment_blocks_path %>
+<h2 class="page-title"><%= @appointment_block.name %></h2>
 
 
-<%= form_tag(appointment_block_appointments_path(@appointment_block), :method=>'post') do %>
-  <div class="dynamic-fields">
+<div class="row">
+  <div class="col-md-6 sub-left">
+
+    <p>
+      <strong>Type:</strong>
+      <%= @appointment_block.phone_session_type.name %>
+    </p>
+    <p>
+      <strong>Code:</strong>
+      <%= @appointment_block.code %>
+    </p>
+    <p>
+      <strong>Active:</strong>
+      <%= @appointment_block.active %>
+    </p>
+
+  </div>
+
+  <div class="col-md-6 sub-right">
 
 
-    <div class="form-group fields">
-  <%= label_tag :date, "" %>
-  <%= date_field_tag "appointment[date]", "", :class => "form-control" %>
-  <div class="form-group">
-    <% (9..18).each do |i| %>
-      <%= label_tag :time, "#{i}:00" %>
-      <%= check_box_tag "appointment[time][]", "#{i}:00" %>
+    <%= form_tag(appointment_block_appointments_path(@appointment_block), :method=>'post') do %>
+      <div class="dynamic-fields">
+
+
+        <div class="form-group fields">
+        <%= label_tag :date, "" %>
+        <%= date_field_tag "appointment[date]", "", :class => "form-control" %>
+        <div class="form-group">
+          <% (9..18).each do |i| %>
+            <%= label_tag :time, "#{i}:00" %>
+            <%= check_box_tag "appointment[time][]", "#{i}:00" %>
+          <% end %>
+        </div>
+        <%= hidden_field_tag "appointment[appointment_block_id]", @appointment_block.id, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="actions">
+        <%= submit_tag "Add Appointments", class: "btn btn-large btn-native" %>
+      </div>
     <% end %>
+
+
+
   </div>
-  <%= hidden_field_tag "appointment[appointment_block_id]", @appointment_block.id, :class => "form-control" %>
-  <%# link_to_remove_fields "remove", f %>
 </div>
-  </div>
-  <p>
-    <%# link_to_add_fields "Add Participant", f, :participants %>
-  </p>
+<br><br>
+<div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12">
+  <table class="table">
+    <% date = date_string(Time.now - 1.year) %>
+    <% @appointments.each do |appointment| %>
+    <% if date_string(appointment.datetime) != date %>
+    <% date = date_string(appointment.datetime) %>
+      <tr><td colspan="5" class="highlight"><b><%= date %></b></td></tr>
+      <tr>
+        <th>Time</th>
+        <th>Participant</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Reminder</th>
+      </tr>
+    <% end %>
+      <tr>
+        <td><%= time_string(appointment.datetime)  %></td>
+        <td>
+          <% unless appointment.participant_id == nil %>
+            <%= appointment.participant.name  %>
+          <% end %>
+        </td>
+        <td><%= appointment.phone %></td>
+        <td><%= appointment.email %></td>
+        <td><%= appointment.reminder %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to "Export Calendar File", appointment_block_calendar_export_path(@appointment_block), :class => 'btn btn-native' %>
+</div>
 
-
-  </div>
-  <div class="actions">
-    <%= submit_tag "Add Appointments", class: "btn btn-large btn-native" %>
-  </div>
-<% end %>
-
-<table class="table">
-  <!-- <thead>
-  <tr>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Participant</th>
-    <th>Phone</th>
-    <th>Reminder</th>
-  </tr>
-  </thead> -->
-  <tbody>
-<% date = date_string(Time.now - 1.year) %>
-<% @appointments.each do |appointment| %>
-<% if date_string(appointment.datetime) != date %>
-<% date = date_string(appointment.datetime) %>
-  <tr><td colspan="4"><b><%= date %></b></td></tr>
-<!--   <thead> -->
-  <tr>
-    <!-- <th>Date</th> -->
-    <th>Time</th>
-    <th>Participant</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Reminder</th>
-  </tr>
- <!--  </thead> -->
-<% end %>
-  <tr>
-    <!-- <td><%= date_string(appointment.datetime) %></td> -->
-    <td><%= time_string(appointment.datetime)  %></td>
-    <td><% unless appointment.participant_id == nil %>
-          <%= appointment.participant.name  %>
-        <% end %>
-    </td>
-    <td><%= appointment.phone %></td>
-    <td><%= appointment.email %></td>
-    <td><%= appointment.reminder %></td>
-  </tr>
-<% end %>
-  </tbody>
-</table>
-<%= link_to "Export Calendar File", appointment_block_calendar_export_path(@appointment_block), :class => 'btn btn-native' %>
-
+<div class="row col-xs-12 text-right">
+  <%= link_to 'Back to Appoinment Blocks', appointment_blocks_path %>
+</div>
 
