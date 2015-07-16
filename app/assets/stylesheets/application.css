@@ -24,6 +24,22 @@
   display: hidden; !important
 }
 
+.btn-native, .form-control {
+  border-radius: 0;
+  margin-bottom: 5px;
+}
+
+.btn-native {
+  border: 0;
+  background: #333;
+  color: rgb(249,125,0);
+}
+
+.btn-native:hover {
+  background: #333;
+  color: rgb(249,125,0);
+  opacity: 0.8;
+}
 
 /*********************
   Layout
