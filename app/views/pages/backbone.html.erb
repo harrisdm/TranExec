@@ -1,4 +1,6 @@
-<div id="app"></div>
+<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+  <div id="app"></div>
+</div>
 
 <script>
   var app = app || {};
@@ -9,6 +11,8 @@
 </script>
 
 <script id="participantsTemplate" type="text/template">
+  <h3 class="text-center">Select your name from the list</h3>
+  <br>
   {[ if (participants === 0) { ]}
     <h1 class="text-center">Thankyou for using TranExec!</h1>
   {[ } else { ]}
@@ -23,6 +27,10 @@
 </script>
 
 <script id="detailsTemplate" type="text/template">
+
+  <h3 class="text-center">Fill in your details</h3>
+  <h4 class="text-center">including how you would like to be reminded about your appointment</h4>
+  <br>
   <form>
     <div class="form-group">
       <label for="phone">Phone Number</label>
@@ -43,14 +51,19 @@
     </div>
     <button id="appointmentsBtn" class="btn btn-native">View Available Appointments</button>
   </form>
+</div>
 </script>
 
 <script id="appointmentsTemplate" type="text/template">
+  <h3 class="text-center">Select your appointment slot</h3>
+  <h4 class="text-center">Click <i>Finished</i> when done</h4>
+  <br>
 </script>
 
 <script id="appointmentGroupTemplate" type="text/template">
-  <h1>{{ groupHeader }}</h1>
-  <hr>
+
+  <h3 class="highlight">{{ groupHeader }}</h3>
+  <!--<hr>-->
   <div class="list-group appointmentList"></div>
 </script>
 
@@ -60,4 +73,5 @@
   {[ if (participant_id === app.Data.participantID) { ]}
     <span class="label label-success">Booked</span>
   {[ } ]}
+</div>
 </script>
