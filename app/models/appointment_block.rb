@@ -16,4 +16,5 @@ class AppointmentBlock < ActiveRecord::Base
   belongs_to :phone_session_type
   has_many :participants, :through => :workshops
   has_many :appointments, :dependent => :destroy
+
 end

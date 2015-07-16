@@ -14,6 +14,8 @@ class AppointmentsController < ApplicationController
       #raise params.inspect
       Appointment.create(:datetime => "#{appointment_params[:date]} #{time}", :appointment_block_id => appointment_params[:appointment_block_id])
     end
+    #raise params.inspect
+    redirect_to appointment_block_path(params[:appointment_block_id])
   end
 
   def edit

@@ -13,4 +13,6 @@ class Participant < ActiveRecord::Base
   belongs_to :project
   has_and_belongs_to_many :workshops
   has_many :phone_sessions
+
+  belongs_to :appointment
 end

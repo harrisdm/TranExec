@@ -83,15 +83,12 @@ Rails.application.routes.draw do
     resources :workshop_types
     resources :users
     resources :appointment_blocks, :shallow => true do
-      get 'export' => 'appointment_blocks#export'
+      get 'exp' => 'appointment_blocks#export'
       resources :appointments
     end
 
-    # resources :workshops do
-    #
-    #   resources :phone_sessions
-    # end
-
+    resources :phone_sessions
+    
     resources :projects, :shallow => true do
       resources :workshops, :shallow => true do
         resources :participants
