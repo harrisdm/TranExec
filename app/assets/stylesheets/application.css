@@ -25,7 +25,7 @@ body, ul {
 .notice {
   display: hidden;
 }.alert {
-  display: hidden; !important
+  display: hidden !important;
 }
 
 /*********************
