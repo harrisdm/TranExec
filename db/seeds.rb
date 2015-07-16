@@ -13,7 +13,7 @@ wst1 = WorkshopType.create :name => 'Workshop 1'
 wst2 = WorkshopType.create :name => 'Workshop 2'
 wst3 = WorkshopType.create :name => 'Workshop 3'
 
-u1 = User.create :name => "Rich Lambert", :coach => false
+u1 = User.create :name => "Rich", :coach => false
 u2 = User.create :name => "Karen", :coach => true
 u3 = User.create :name => "Sarit", :coach => true
 u4 = User.create :name => "John", :coach => true
