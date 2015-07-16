@@ -37,6 +37,7 @@ body, ul {
   border: 0;
   background: #333;
   color: rgb(249,125,0);
+  color: #fafafa;
 }
 
 .btn-native:hover {
@@ -54,12 +55,16 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background-color: #333;
+    height: 100vh;
+    background-color: #ffffff;
+    overflow: hidden;
 }
-header,
+header {
+  padding: 10px 20px;
+  border-bottom: 10px solid #333;
+}
 footer {
-    min-height: 50px;
+    min-height: 30px;
     background: #333;
 }
 .content-wrapper {
@@ -69,13 +74,14 @@ footer {
 }
 .sidebar {
   width: 200px;
-  border-right: 3px solid orange;
-  background-color: #fafafa
+  background-color: #fafafa;
+  border-right: 5px solid orange;
 }
 main {
   flex-grow: 1;
   padding: 15px;
   background-color: #fafafa;
+  overflow: scroll;
 }
 
 
@@ -121,6 +127,13 @@ ul.labels-info li a i {
 }
 .inbox-divider {
     ---border-bottom: 1px solid #d5d8df;
+}
+
+/*********************
+  Tables
+*********************/
+.table-actions {
+  width: 220px;
 }
 
 
