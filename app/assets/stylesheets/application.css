@@ -16,12 +16,97 @@
  */
 
 
+.notice {
+  display: hidden;
+} 
+.alert {
+  display: hidden; !important
+}
 
-nav ul li {
-  display: inline-block;
-  margin-right: 10px;
+body {
+  background-color: #aaa
+}
+
+.container {
+  background-color: #fafafa;
+  min-height: 90vh;
+  border: 1px solid #c3c3c3;
 }
 
 .field_with_errors { width: 100%; }
-
 .text-uppercase { text-transform: uppercase; }
+
+
+/*********************
+  Header
+*********************/
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100px;
+  background-color: rgb(67,67,67);
+}
+
+.content {
+  margin-top: 100px;
+}
+
+
+
+/*********************
+  Nav Side-Bar
+*********************/
+.highlight {
+  background-color: #333;
+  margin: 0;
+  padding: 5px 0 5px 15px;
+  ---text-align: center;
+}
+ul.labels-info li h4 {
+  color: rgb(249,125,0);
+  font-size: 13px;
+  --padding: 5px 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+ul.labels-info li {
+    margin: 0;
+}
+ul.labels-info li a {
+    border-radius: 0;
+    color: #6a6a6a;
+}
+ul.labels-info li a:hover, ul.labels-info li a:focus {
+    background: none repeat scroll 0 0 #d5d7de;
+    color: #6a6a6a;
+}
+ul.labels-info li a i {
+    padding-right: 10px;
+}
+.nav.nav-pills.nav-stacked.labels-info p {
+    color: #9d9f9e;
+    font-size: 11px;
+    margin-bottom: 0;
+    padding: 0 22px;
+}
+.inbox-divider {
+    border-bottom: 1px solid #d5d8df;
+}
+.nav h4 {
+
+}
+
+
+
+/*********************
+  Tables
+*********************/
+.table-actions {
+  width: 220px;
+}
+
+
+

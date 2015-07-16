@@ -8,6 +8,10 @@
 </head>
 <body>
 
+
+<p class="notice"><%= notice %></p>
+<!-- <p class="alert"><%= alert %></p> -->
+
 <header>
   <%if @current_user.present? %>
     <nav class="navbar navbar-default navbar-static-top">
@@ -26,12 +30,30 @@
   <% end %>
 </header>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<div class="container">
+  <div class="row content">
+    <div class="col-xs-2">
+      <ul class="nav nav-pills nav-stacked labels-info inbox-divider">
+        <li class="highlight"><h4>Admin</h4></li>
+        <li><%= link_to "Projects", projects_path %></li>
+        <li><%= link_to "Appointments", appointment_blocks_path %></li>
+      </ul>
+      <ul class="nav nav-pills nav-stacked labels-info inbox-divider">
+        <li><h4>Settings</h4></li>
+        <li><%= link_to "Workshops", workshop_types_path %></li>
+        <li><%= link_to "Phone Sessions", phone_session_types_path %></li>
+      </ul>
+    </div>
+    <div class="col-xs-6">
 
-  <div class="container">
-    <%= yield %>
+        <%= yield %>
+
+    </div>
   </div>
+</div>
+
+
+
 
 </body>
 </html>
