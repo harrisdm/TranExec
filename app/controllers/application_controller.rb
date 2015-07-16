@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def authorize_user
     if @current_user.blank?
-      redirect_to root_path
+      redirect_to admin_path
     end
   end
 
