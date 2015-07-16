@@ -70,8 +70,8 @@ class AppointmentBlocksController < ApplicationController
     
     # cal = "test"
     cal = make_calendar @appointment_block
-    #send_data cal, :filename => 'event-1.ics'
-    render text: cal
+    send_data cal, :filename => 'event-1.ics'
+    #render text: cal
 
   end
 
