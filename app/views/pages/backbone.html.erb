@@ -10,18 +10,42 @@
 
 <script id="participantsTemplate" type="text/template">
   {[ if (participants === 0) { ]}
-    <h1 class="text-center">COMPLETE!</h1>
+    <h1 class="text-center">Thankyou for using TranExec!</h1>
   {[ } else { ]}
     <div id="participantList" class="list-group"></div>
   {[ } ]}
+
+  <button id="homeBtn" class="btn btn-success">Go back</button>
 </script>
 
 <script id="participantTemplate" type="text/template">
   {{ name }}
 </script>
 
+<script id="detailsTemplate" type="text/template">
+  <form>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="text" class="form-control" id="phone">
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <label>Reminder Method</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="reminder" id="smsRadio" value="SMS" checked>SMS
+      </label>
+      <label>
+        <input type="radio" name="reminder" id="emailRadio" value="Email">Email
+      </label>
+    </div>
+    <button id="appointmentsBtn" class="btn btn-success">View Available Appointments</button>
+  </form>
+</script>
+
 <script id="appointmentsTemplate" type="text/template">
-  <button class="btn btn-success">I'm Finished</button>
 </script>
 
 <script id="appointmentGroupTemplate" type="text/template">
@@ -32,4 +56,8 @@
 
 <script id="appointmentTemplate" type="text/template">
   {{ datetime_nice }}
+
+  {[ if (participant_id === app.Data.participantID) { ]}
+    <span class="label label-success">Booked</span>
+  {[ } ]}
 </script>

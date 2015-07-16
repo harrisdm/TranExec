@@ -35,8 +35,18 @@ app.Views.AppointmentView = Backbone.View.extend({
     }
 
     this.model.set('participant_id', app.Data.participantID);
+    this.model.set('phone', app.Data.phone);
+    this.model.set('email', app.Data.email);
+    this.model.set('reminder', app.Data.reminder);
+
+    this.markAsPending();
     this.model.save().done(function() {
       app.WebSockets.channel.trigger('new_booking');
     });
+  },
+
+  markAsPending: function() {
+    var label = $('<span class="label label-warning">Pending</span>');
+    this.$el.append(label);
   }
 });

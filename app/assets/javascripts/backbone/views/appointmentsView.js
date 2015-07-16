@@ -5,7 +5,7 @@ app.Views.AppointmentsView = Backbone.View.extend({
   el: '#app',
 
   events: {
-    'click button': 'showParticipants'
+    'click #participantsBtn': 'showParticipants'
   },
 
   initialize: function() {
@@ -24,6 +24,8 @@ app.Views.AppointmentsView = Backbone.View.extend({
       var appointmentGroupView = new app.Views.AppointmentGroupView({ collection: appointments });
       appointmentGroupView.render(that.$el);
     });
+
+    this.addParticipantsBtn();
   },
 
   showParticipants: function() {
@@ -48,5 +50,14 @@ app.Views.AppointmentsView = Backbone.View.extend({
     });
 
     return new app.Collections.Appointments(models);
+  },
+
+  addParticipantsBtn: function() {
+    if (!this.collection.findWhere({ participant_id: app.Data.participantID })) {
+      return;
+    }
+
+    var btn = $('<button id="participantsBtn" class="btn btn-success">Finished</button>');
+    this.$el.append(btn);
   }
 });
