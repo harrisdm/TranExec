@@ -16,7 +16,11 @@
  */
 
 
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
+body, ul {
+  font-family: 'Roboto', sans-serif;
+}
 
 .notice {
   display: hidden;
