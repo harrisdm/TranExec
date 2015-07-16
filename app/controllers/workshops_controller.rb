@@ -48,7 +48,7 @@ class WorkshopsController < ApplicationController
     @path = @workshop
 
     if @workshop.update(workshop_params)
-      redirect_to project_path(workshop_params[:project_id]), notice: 'Workshop was successfully updated.'
+      redirect_to workshop_path(@workshop), notice: 'Workshop was successfully updated.'
     else
       render :edit
     end

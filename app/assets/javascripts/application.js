@@ -24,8 +24,8 @@
 
 var onClickRemoveLink = function(){
   $('.remove_link').on("click", function(){
-    $(this).prev("input[type=hidden]").val(1);
-    $(this).parent(".fields").hide();
+    $(this).prev("input").val(1);
+    $(this).closest(".fields").hide();
   });
 };
 
