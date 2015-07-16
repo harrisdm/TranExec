@@ -27,7 +27,16 @@ class BackboneController < ApplicationController
   end
 
   def make_booking
-    appointment = Appointment.find params['id']
+    appointment_block = appointment_block_from_code
+
+    # Remove old booking
+    appointment = appointment_block.appointments.where({
+      :participant_id => params[:participant_id]
+    })
+    appointment.update_all :participant_id => nil
+
+    # Create new booking
+    appointment = appointment_block.appointments.find params['id']
     appointment.update appointment_params
 
     render json: appointment
