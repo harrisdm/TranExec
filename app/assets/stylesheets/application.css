@@ -24,6 +24,12 @@
   display: hidden; !important
 }
 
+/*********************
+  Design
+*********************/
+.page-title {
+  padding-bottom: 20px;
+}
 .btn-native, .form-control {
   border-radius: 0;
   margin-bottom: 5px;
