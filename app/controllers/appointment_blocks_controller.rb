@@ -7,7 +7,6 @@ class AppointmentBlocksController < ApplicationController
   def show
     @appointment_block = AppointmentBlock.find(params[:id])
     @appointments = @appointment_block.appointments
-    #@grouped_appointments = Appointment.where(:appointment_block_id params[:id])
     #raise params.inspect
   end
 
