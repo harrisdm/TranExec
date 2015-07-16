@@ -57,7 +57,7 @@ app.Views.AppointmentsView = Backbone.View.extend({
       return;
     }
 
-    var btn = $('<button id="participantsBtn" class="btn btn-success">Finished</button>');
+    var btn = $('<button id="participantsBtn" class="btn btn-native">Finished</button>');
     this.$el.append(btn);
   }
 });
