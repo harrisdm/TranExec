@@ -38,6 +38,11 @@
     <%= f.select :workshop_type_id, WorkshopType.all.map { |w| [w.name, w.id] }, {:include_blank => false}, {:class => 'form-control'} %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :appointment_block_id %>
+    <%= f.select :appointment_block_id, AppointmentBlock.all.map { |a| [a.name, a.id] }, {:include_blank => true}, {:class => 'form-control'} %>
+  </div>
+
 
   <div class="dynamic-fields">
     <%= f.fields_for :coaching_sessions do |builder| %>
