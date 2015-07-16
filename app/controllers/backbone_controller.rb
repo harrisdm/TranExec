@@ -37,7 +37,7 @@ class BackboneController < ApplicationController
 
     # Create new booking
     appointment = appointment_block.appointments.find params['id']
-    appointment.update appointment_params
+    appointment.update appointment_params unless appointment.participant_id
 
     render json: appointment
   end
