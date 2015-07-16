@@ -72,13 +72,14 @@
 #
 
 Rails.application.routes.draw do
-
-  # devise_for :users
-
   root :to => 'pages#home'
   get '/secure' => 'pages#secure'
 
-  get '/admin' => 'pages#sign_in'
+  # Sessions
+  get '/admin' => 'session#new'
+  post 'login' => 'session#create'
+  delete 'logout' => 'session#destroy'
+
   scope :admin do
     resources :phone_session_types
     resources :workshop_types
