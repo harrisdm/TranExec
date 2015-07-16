@@ -1,14 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @project.company %>
-</p>
+<h2><%= @project.company %> - <%= @project.name %></h3>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
 
 
 <% if @workshops.empty? %>
@@ -18,7 +11,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Project</th>
       <th>Session</th>
       <th>Date</th>
       <th>Location</th>
@@ -29,13 +21,16 @@
   <tbody>
     <% @workshops.each do |workshop| %>
       <tr>
-        <td><%= "#{workshop.project.company}, #{workshop.project.name}" %></td>
         <td><%= workshop.workshop_type.name %></td>
         <td><%= date_string(workshop.datetime) %></td>
         <td><%= workshop.location %></td>
-        <td><%= link_to 'Show', workshop %></td>
-        <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
-        <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="table-actions">
+          <div class="btn-group" role="group">
+            <%= link_to 'Show', workshop, :class => "btn btn-default" %>
+            <%= link_to 'Edit', edit_workshop_path(workshop), :class => "btn btn-default" %>
+            <%= link_to 'Delete', workshop, :class => "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -43,7 +38,14 @@
 
 <% end %>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %> |
-<%= link_to 'Add a Workshop',  new_project_workshop_path(@project) %>
+<div class="row">
+  <div class="col-xs-6 text-left">
+    <%= link_to 'Add a Workshop',  new_project_workshop_path(@project), :class => "btn btn-native" %>
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to 'Edit Project', edit_project_path(@project) %> |
+    <%= link_to 'Projects List', projects_path %>
+  </div>
+</div>
+
 
