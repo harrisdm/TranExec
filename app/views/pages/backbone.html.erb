@@ -11,11 +11,11 @@
 </script>
 
 <script id="participantsTemplate" type="text/template">
-  <h3 class="text-center">Select your name from the list</h3>
-  <br>
   {[ if (participants === 0) { ]}
     <h1 class="text-center">Thankyou for using TranExec!</h1>
   {[ } else { ]}
+    <h3 class="text-center">Select your name from the list</h3>
+    <br>
     <div id="participantList" class="list-group"></div>
   {[ } ]}
 

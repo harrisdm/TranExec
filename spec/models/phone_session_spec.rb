@@ -3,7 +3,6 @@
 # Table name: phone_sessions
 #
 #  id                    :integer          not null, primary key
-#  client_id             :integer
 #  phone_session_type_id :integer
 #  phone                 :string
 #  reminder              :string
@@ -11,6 +10,7 @@
 #  user_id               :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  participant_id        :integer
 #
 
 require 'rails_helper'
