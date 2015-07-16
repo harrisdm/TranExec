@@ -16,10 +16,15 @@
  */
 
 
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:700);
 
 body, ul {
   font-family: 'Roboto', sans-serif;
+}
+
+h1, h4 {
+  font-family: 'Droid Sans', sans-serif;
 }
 
 .notice {
