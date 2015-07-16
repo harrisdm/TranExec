@@ -1,5 +1,6 @@
 class PhoneSessionsController < ApplicationController
   before_action :set_phone_session, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user
 
   # GET /phone_sessions
   # GET /phone_sessions.json

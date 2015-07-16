@@ -1,4 +1,5 @@
 class WorkshopsController < ApplicationController
+  before_action :authorize_user
 
   def index
     @workshops = Workshop.all
@@ -14,7 +15,7 @@ class WorkshopsController < ApplicationController
     # Set the @project for displaying parent project information
     @project = Project.find(params[:project_id])
     @workshop = @project.workshops.build
-    # form path differs between add and edit because of shallow nesting. 
+    # form path differs between add and edit because of shallow nesting.
     #@path sets the correct routing with shorthand
     @path = [@project, @workshop]
     # 2.times { @workshop.coaching_sessions.build }

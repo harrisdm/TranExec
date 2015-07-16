@@ -1,4 +1,5 @@
 class AppointmentBlocksController < ApplicationController
+  before_action :authorize_user
 
   def index
     @appointment_blocks = AppointmentBlock.all
@@ -67,7 +68,7 @@ class AppointmentBlocksController < ApplicationController
     # end
 
     # @appointment_block.destroy
-    
+
     # cal = "test"
     cal = make_calendar @appointment_block
     send_data cal, :filename => 'event-1.ics'

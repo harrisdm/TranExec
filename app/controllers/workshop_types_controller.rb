@@ -1,5 +1,6 @@
 class WorkshopTypesController < ApplicationController
   before_action :set_workshop_type, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user
 
   # GET /workshop_types
   # GET /workshop_types.json

@@ -1,5 +1,6 @@
 class PhoneSessionTypesController < ApplicationController
   before_action :set_phone_session_type, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user
 
   # GET /phone_session_types
   # GET /phone_session_types.json
