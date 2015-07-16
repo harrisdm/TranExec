@@ -6,6 +6,9 @@ class AppointmentBlocksController < ApplicationController
 
   def show
     @appointment_block = AppointmentBlock.find(params[:id])
+    @appointments = @appointment_block.appointments
+    #@grouped_appointments = Appointment.where(:appointment_block_id params[:id])
+    #raise params.inspect
   end
 
 
@@ -70,7 +73,7 @@ class AppointmentBlocksController < ApplicationController
     
     # cal = "test"
     cal = make_calendar @appointment_block
-    send_data cal, :filename => 'event-1.ics'
+    send_data cal, :filename => "CalendarExport-#{@appointment_block.name}.ics"
     #render text: cal
 
   end
@@ -125,7 +128,7 @@ appointment_block.appointments.each do |appointment|
     calendar += '
 BEGIN:VEVENT
 DTSTAMP:' + now + '
-UID:' + now + '-' + (Random.rand*99999).ceil.to_s + '@marudot.com
+UID:' + start_time.to_s + '-' + appointment.id.to_s + '@marudot.com
 DTSTART;TZID="Australia/Sydney":' + start_time + '
 DTEND;TZID="Australia/Sydney":' + end_time + '
 SUMMARY:Phone Session - ' + appointment.participant.name + '

@@ -42,6 +42,7 @@ $(document).ready(function() {
     new_fields = new_fields.replace(/new_coaching_sessions/g, new_id);
     
     $(".dynamic-fields").append($(new_fields));
+    $(".dynamic-fields").children().last().children().removeClass("field_with_errors");
     onClickRemoveLink();
   });
 

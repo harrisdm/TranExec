@@ -83,7 +83,7 @@ Rails.application.routes.draw do
     resources :workshop_types
     resources :users
     resources :appointment_blocks, :shallow => true do
-      get 'exp' => 'appointment_blocks#export'
+      get 'exp' => 'appointment_blocks#export', :as => "calendar_export"
       resources :appointments
     end
 
